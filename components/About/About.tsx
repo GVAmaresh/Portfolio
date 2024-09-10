@@ -1,11 +1,12 @@
+import Heading from "../Others/Heading";
+import Testimonials from "./Testimonials";
+import What_Doing from "./What_Doing";
+
 export default function About() {
   return (
     <>
       <div className="mt-2 md:mt-4 lg:-mt-6">
-        <div className="">
-          <div className=" font-extrabold text-3xl">About Me</div>
-          <div className="mt-2 border-4 w-16 rounded-2xl border-amber-400"></div>
-        </div>
+        <Heading value={"About Me"} />
         <div className="">
           <div className=" text-sm mt-4">
             {" "}
@@ -21,6 +22,12 @@ export default function About() {
             doloribus in ea!
           </div>
         </div>
+      </div>
+      <div className="">
+        <What_Doing />
+      </div>
+      <div className="">
+        <Testimonials />
       </div>
     </>
   );

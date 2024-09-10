@@ -5,8 +5,8 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import About from "../About/About";
-import TimelineComponent from "../Timeline/Timeline";
-import Skills from "../Timeline/Skills";
+import Resume from "../Resume/Resume";
+import Contact from "../Contact/Contact";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -156,9 +156,8 @@ export default function MainNav_Comp() {
             <About />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
-            <TimelineComponent />
-            <TimelineComponent />
-            <Skills/>
+            <Resume/>
+    
 
           </CustomTabPanel>
           <CustomTabPanel value={value} index={2}>
@@ -168,7 +167,7 @@ export default function MainNav_Comp() {
             Item Three
           </CustomTabPanel>
           <CustomTabPanel value={value} index={4}>
-            Item Four
+            <Contact/>
           </CustomTabPanel>
         </Box>
       </Box>

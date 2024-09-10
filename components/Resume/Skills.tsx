@@ -86,26 +86,29 @@ function GradientCircularProgress() {
     </React.Fragment>
   );
 }
-// export default function CustomizedProgressBars() {
-//   return (
-//     <Stack spacing={2} sx={{ flexGrow: 1 }}>
-//       <FacebookCircularProgress />
-//       <GradientCircularProgress />
-//       <br />
-//       <BorderLinearProgress variant="determinate" value={50} />
-//     </Stack>
-//   );
-// }
+
+const GetSkills = ()=>{
+  return<>
+          <div className="p-8 pt-4 pb-2">
+          <div className=" mb-2 font-bold">
+            Web Design{" "}
+            <span className="pl-4 font-medium text-amber-400">50%</span>
+          </div>
+          <BorderLinearProgress variant="determinate" value={50} />
+        </div>
+  </>
+}
 
 export default function Skills() {
   return (
     <>
       <div className="">
-        <div className="">My Skills</div>
-        <div className=" p-8 border-2 rounded-xl">
-            <div className="">Web Design</div>
-          <BorderLinearProgress variant="determinate" value={50} />
-        </div>
+        <div className=" font-bold text-3xl mb-4">My Skills</div>
+        <div className="border-2 rounded-3xl pb-6 ml-1 lg:ml-4">
+        {Object.values([1, 2, 3, 4]).map((data, index) => (
+            <GetSkills />
+          ))}
+          </div>
       </div>
     </>
   );
