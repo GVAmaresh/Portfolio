@@ -36,7 +36,7 @@ const TestimonialsComponent = () => {
           slots={{ backdrop: StyledBackdrop }}
           keepMounted
         >
-          <ModalContent sx={{ width: 400 }}>
+          <ModalContent sx={{ width: 400, backgroundColor:"transparent" }} className=" bg-transparent">
             <div className="bg-gray-800 rounded-3xl p-6">
               <div className="flex gap-6">
                 <div className="ml-6 w-24 h-24 -mt-12 rounded-3xl bg-red-500"></div>
@@ -140,7 +140,7 @@ const ModalContent = styled("div")(
     flex-direction: column;
     gap: 2px;
     overflow: hidden;
-    background-color: ${theme.palette.mode === "dark" ? "transparent" : "transparent"};
+    background-color: transparent
     border-radius: 32px;
     padding-top:32px;
     margin-top:-72px;
