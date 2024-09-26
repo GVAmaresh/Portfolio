@@ -7,6 +7,7 @@ import { styled } from "@mui/material/styles";
 import About from "../About/About";
 import Resume from "../Resume/Resume";
 import Contact from "../Contact/Contact";
+import Portfolio from "../Portfolio/Portfolio";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -26,9 +27,7 @@ function CustomTabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3, height: "600px", overflowY: "auto" }}>
-          {children}
-        </Box>
+        <Box sx={{ p: 3, height: "600px", overflowY: "auto" }}>{children}</Box>
       )}
     </div>
   );
@@ -42,14 +41,20 @@ function a11yProps(index: number) {
 }
 
 const CustomTab = styled(Tab)(({ theme }) => ({
+  width:"120px",
   "&.Mui-selected": {
-    color: "yellow",
+    color: "white",
     borderRadius: 4,
-    borderColor: "yellow"
+    borderColor: "transparent",
   },
   "&.Mui-focusVisible": {
-    outline: "none"
-  }
+    outline: "none", 
+  },
+  "&.Mui-focusVisible.Mui-selected": {
+    borderBottom: "none",
+    border:"0px solid transparent"
+  },
+
 }));
 
 export default function MainNav_Comp() {
@@ -60,7 +65,14 @@ export default function MainNav_Comp() {
   };
 
   return (
-    <Box sx={{ width: "100%", display: "flex", flexDirection: "column", height: "100vh" }}>
+    <Box
+      sx={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh"
+      }}
+    >
       <Box
         sx={{
           display: "flex",
@@ -71,10 +83,11 @@ export default function MainNav_Comp() {
           }
         }}
       >
-        <div className="flex justify-end">
+        <div className="flex justify-end ">
           <Box
             sx={{
               display: "flex",
+              color: "white",
               justifyContent: {
                 xs: "space-evenly",
                 md: "space-evenly",
@@ -111,10 +124,10 @@ export default function MainNav_Comp() {
               borderRight: { xs: 0, lg: 0 },
               borderRadius: {
                 xs: "0.5rem 0.5rem 0 0",
-                lg: "0 0 0rem 1.5rem"
+                lg: "0 1.5rem 0rem 1.5rem"
               },
               zIndex: 1000,
-              backgroundColor: "transparent"
+              backgroundColor: "rgba(113, 121, 126, 0.8)"
             }}
             className="w-full lg:w-fit"
           >
@@ -125,10 +138,16 @@ export default function MainNav_Comp() {
               variant="scrollable"
               scrollButtons="auto"
               sx={{
+                "& .MuiTabs-indicator": {
+                  display: "none",
+                },
                 "& .MuiTabs-flexContainer": {},
                 "& .MuiTab-root": {
                   outline: "none",
                   fontWeight: "bold",
+                  backgroundColor: "",
+                  color: "white",
+
                   fontSize: {
                     xs: "0.6rem",
                     sm: "0.7rem",
@@ -138,15 +157,19 @@ export default function MainNav_Comp() {
                     xs: "6px 6px",
                     sm: "8px 12px",
                     md: "10px 16px"
+                  },
+                  "&:focus": {
+                    fontWeight: 900,
+                    outline: "none",
                   }
                 }
               }}
             >
-              <CustomTab label="About Me" {...a11yProps(0)} />
+              <CustomTab  label="About Me" {...a11yProps(0)} />
               <CustomTab label="Resume" {...a11yProps(1)} />
               <CustomTab label="Portfolio" {...a11yProps(2)} />
-              <CustomTab label="Papers" {...a11yProps(3)} />
-              <CustomTab label="Contact" {...a11yProps(4)} />
+              <CustomTab label="Contact" {...a11yProps(3)} /> 
+              {/* <CustomTab label="Papers" {...a11yProps(3)} /> */}
             </Tabs>
           </Box>
         </div>
@@ -156,19 +179,17 @@ export default function MainNav_Comp() {
             <About />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
-            <Resume/>
-    
-
+            <Resume />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={2}>
-            Item Three
+            <Portfolio />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={3}>
+            <Contact />
+          </CustomTabPanel>
+          {/* <CustomTabPanel value={value} index={3}>
             Item Three
-          </CustomTabPanel>
-          <CustomTabPanel value={value} index={4}>
-            <Contact/>
-          </CustomTabPanel>
+          </CustomTabPanel> */}
         </Box>
       </Box>
     </Box>

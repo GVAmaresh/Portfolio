@@ -1,4 +1,5 @@
 import Side_Comp from "@/components/SideNav_Comp/Side_Comp";
+import Side_Comp_lg from "@/components/SideNav_Comp/Side_comp_lg";
 
 export default function SideNav({ children }: { children: React.ReactNode }) {
   return (
@@ -7,6 +8,9 @@ export default function SideNav({ children }: { children: React.ReactNode }) {
         <div className="hidden lg:contents "></div>
         <div className=" contents lg:hidden h-full">
           <Side_Comp />
+        </div>
+        <div className="hidden lg:contents">
+          <Side_Comp_lg/>
         </div>
       </div>
 

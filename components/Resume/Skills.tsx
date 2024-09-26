@@ -28,7 +28,6 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   }
 }));
 
-// Inspired by the former Facebook spinners.
 function FacebookCircularProgress(props: CircularProgressProps) {
   return (
     <Box sx={{ position: "relative" }}>
@@ -68,7 +67,6 @@ function FacebookCircularProgress(props: CircularProgressProps) {
   );
 }
 
-// From https://github.com/mui/material-ui/issues/9496#issuecomment-959408221
 function GradientCircularProgress() {
   return (
     <React.Fragment>

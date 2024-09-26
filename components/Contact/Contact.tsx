@@ -48,14 +48,20 @@ const GetContactForm = () => {
             className="pb-16 bg-transparent w-11/12 border-2 border-black rounded-lg text-2xl text-gray-950 pl-3 placeholder-black active:bg-transparent focus:bg-transparent"
           />
         </div>
-        <div className="flex gap-2 p-4 border-2 w-fit mt-4 rounded-xl">
-          <div className=""><BsSendFill size={25}/></div>
+        <div
+          className="flex gap-2 p-4 border-2 w-fit mt-4 rounded-xl cursor-pointer 
+                hover:bg-gray-700 focus:bg-green-500 active:bg-green-700 transition-colors"
+        >
+          <div className="">
+            <BsSendFill size={25} />
+          </div>
           <div className="">Send Message</div>
         </div>
       </div>
     </>
   );
 };
+
 export default function Contact() {
   return (
     <>
