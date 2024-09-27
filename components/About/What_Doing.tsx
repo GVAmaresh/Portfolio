@@ -1,16 +1,18 @@
+import { useColor } from "@/app/ColorContext";
 import { Grid } from "@mui/material";
 import { FaCode } from "react-icons/fa";
 
 const Get_Work = () => {
+  const {theme} = useColor()
   return (
-    <div className=" border-2 p-6  rounded-3xl">
+    <div className="p-6 rounded-3xl"style={{boxShadow:theme.boxShadow}}>
       <div className="flex flex-col md:flex-row justify-evenly align-middle items-center gap-6 ">
         <div className=" justify-center">
-          <FaCode size={40} />
+          <FaCode size={40} color={theme.logo}/>
         </div>
         <div className="">
-          <div className=" font-bold text-center">Web design</div>
-          <div className="text-center text-sm text-balance">
+          <div className=" font-bold text-center" style={{color:theme.heading}}>Web design</div>
+          <div className="text-center text-sm text-balance" style={{color:theme.subContent}}>
             The most modern and high-quality design made at a professional
             level.
           </div>
@@ -21,9 +23,10 @@ const Get_Work = () => {
 };
 
 export default function What_Doing() {
+  const {theme} = useColor()
     return (
       <div className="pt-8">
-        <div className="text-2xl font-extrabold mb-">What I'm Doing</div>
+        <div className="text-2xl font-extrabold" style={{color:theme.heading}}>What I'm Doing</div>
         <Grid
           sx={{ flexGrow: 1 }}
           container

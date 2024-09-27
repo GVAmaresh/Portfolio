@@ -1,3 +1,4 @@
+import { useColor } from "@/app/ColorContext";
 import { IconType } from "react-icons"; 
 
 interface SideComponentDetailsProps {
@@ -13,14 +14,15 @@ export default function Side_Component_Details({
   value,
   link,
 }: SideComponentDetailsProps) {
+  const {theme}=useColor()
   return (
     <div className="flex gap-4 p-2">
-      <div className="bg-slate-500 rounded-full p-2">
-        <Icon size={30} /> {/* Render the icon dynamically */}
+      <div className=" rounded-full p-2" style={{backgroundColor:theme.box}}>
+        <Icon size={30} color={theme.logo}/>
       </div>
       <div>
-        <div className="text-gray-500 text-xs">{label}</div>
-        <a href={link} className="font-bold hover:font-extrabold cursor-pointer text-sm">
+        <div className="text-gray-500 text-xs" style={{color:theme.subContent}}>{label}</div>
+        <a href={link} className="font-bold hover:font-extrabold cursor-pointer text-sm"style={{color:theme.heading}}>
           {value}
         </a>
       </div>

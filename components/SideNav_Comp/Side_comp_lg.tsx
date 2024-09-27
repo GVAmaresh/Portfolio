@@ -8,31 +8,35 @@ import { FaGithub } from "react-icons/fa";
 import { IoPhonePortraitOutline, IoLogoInstagram } from "react-icons/io5";
 import { SiLeetcode } from "react-icons/si";
 import Side_Component_Details from "./Side_Comp_Details";
+import { useColor } from "@/app/ColorContext";
+import Heading from "../Others/Heading";
 export default function Side_Comp_lg() {
+  const { theme } = useColor();
   const [data, setData] = React.useState<string[] | []>([
     "Web Developer",
     "MERN Developer",
     "Machine Learner"
   ]);
-  const[socialMedia, setSocialMedia] = React.useState([{
-    name: "linkedin",
-    link: "https://www.linkedin.com/in/g-v-amaresh/",
-    icon: FaLinkedin,
-    color: "black"
-  },
-  {
-    name: "leetcode",
-    link: "https://leetcode.com/u/GVAmaresh/",
-    icon: SiLeetcode,
-    color: "black"
-  }, 
-  {
-    name: "github",
-    link: "https://github.com/GVAmaresh",
-    icon: FaGithub,
-    color: "black"
-  }, 
-])
+  const [socialMedia, setSocialMedia] = React.useState([
+    {
+      name: "linkedin",
+      link: "https://www.linkedin.com/in/g-v-amaresh/",
+      icon: FaLinkedin,
+      color: "black"
+    },
+    {
+      name: "leetcode",
+      link: "https://leetcode.com/u/GVAmaresh/",
+      icon: SiLeetcode,
+      color: "black"
+    },
+    {
+      name: "github",
+      link: "https://github.com/GVAmaresh",
+      icon: FaGithub,
+      color: "black"
+    }
+  ]);
   const [details, setDetails] = React.useState([
     {
       label: "Email",
@@ -63,13 +67,22 @@ export default function Side_Comp_lg() {
     <>
       <div className="">
         <div className=" flex justify-center">
-          <div className=" bg-slate-600 h-32 m-6 rounded-xl w-32"></div>
+          <div
+            className=" bg-slate-600 h-32 m-6 rounded-xl w-32"
+            style={{ backgroundColor: theme.box }}
+          ></div>
         </div>
-        <div className=" text-center font-extrabold text-2xl">G V Amaresh</div>
+        <div
+          className=" text-center font-extrabold text-2xl"
+          style={{ color: theme.heading }}
+        >
+          G V Amaresh
+        </div>
         <div className=" flex flex-wrap justify-center mt-4">
           {data.map((d, index) => (
             <div
               key={index}
+              style={{color:theme.sideNav, backgroundColor:theme.box}}
               className=" w-fit m-2 bg-slate-500 p-2 rounded-lg font-semibold text-xs"
             >
               {d}
@@ -94,16 +107,16 @@ export default function Side_Comp_lg() {
           <div className="border-b-2 border-gray-100 pt-2"></div>
           <div className="flex gap-3 pt-4 ml-6">
             {socialMedia.map((media) => {
-              const IconComponent = media.icon; // Get the icon component
+              const IconComponent = media.icon;
               return (
                 <a
                   key={media.name}
                   href={media.link}
                   target="_blank"
-                  rel="noopener noreferrer" 
-                  style={{ color: media.color }} 
+                  rel="noopener noreferrer"
+                  style={{ color: media.color }}
                 >
-                  <IconComponent size={20} />
+                  <IconComponent size={20} color={theme.socialMediaLogo}/>
                 </a>
               );
             })}

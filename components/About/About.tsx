@@ -1,15 +1,16 @@
+import { useColor } from "@/app/ColorContext";
 import Heading from "../Others/Heading";
 import Testimonials from "./Testimonials";
 import What_Doing from "./What_Doing";
 
 export default function About() {
+  const{theme} = useColor()
   return (
     <>
       <div className="mt-2 md:mt-4 lg:-mt-6">
         <Heading value={"About Me"} />
-        <div className="">
+        <div className="" style={{color:theme.subContent}}>
           <div className=" text-sm mt-4">
-            {" "}
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos id
             assumenda veritatis, ipsam corporis laudantium sequi vel mollitia
             explicabo voluptatem totam perferendis pariatur voluptatum

@@ -2,64 +2,69 @@ import * as React from "react";
 import clsx from "clsx";
 import { styled, css } from "@mui/system";
 import { Modal as BaseModal } from "@mui/base/Modal";
+import { useColor } from "@/app/ColorContext";
 const TestimonialsComponent = () => {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-  
-    return (
-      <div className="">
-        <TriggerButton type="button" onClick={handleOpen}>
-          <div className="min-w-96 h-44 bg-gray-800 rounded-3xl p-4 relative overflow-visible">
-            <div className="flex gap-6 relative">
-              <div
-                className="absolute ml-6 w-24 z-50 h-24 -mt-12 rounded-3xl bg-red-500"
-                style={{ zIndex: 1000 }}
-              ></div>
-              <div className="text-white font-bold ml-32">Daniel Lewis</div>
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const { theme } = useColor();
+  return (
+    <div className="">
+      <TriggerButton type="button" onClick={handleOpen}>
+        <div className="min-w-96 h-44 rounded-3xl p-4 relative overflow-visible" style={{boxShadow:theme.boxShadow}}>
+          <div className="flex gap-6 relative">
+            <div
+              className="absolute ml-6 w-24 z-50 h-24 -mt-12 rounded-3xl"
+              style={{ zIndex: 1000, backgroundColor: theme.box }}
+            ></div>
+            <div className="text-white font-bold ml-32" style={{color:theme.heading}}>Daniel Lewis</div>
+          </div>
+          <div className="text-white mt-12 line-clamp-2" style={{color:theme.subContent}}>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem
+            deserunt debitis necessitatibus laboriosam? Iure quos nulla
+            recusandae, dolores nesciunt fuga sed assumenda repudiandae,
+            architecto molestiae eos unde, nihil veritatis illo.
+          </div>
+        </div>
+      </TriggerButton>
+
+      {/* Modal */}
+      <Modal
+        aria-labelledby="keep-mounted-modal-title"
+        aria-describedby="keep-mounted-modal-description"
+        open={open}
+        onClose={handleClose}
+        slots={{ backdrop: StyledBackdrop }}
+        keepMounted
+      >
+        <ModalContent
+          sx={{ width: 400, backgroundColor: "transparent" }}
+          className=" bg-transparent"
+        >
+          <div className="bg-gray-800 rounded-3xl p-6">
+            <div className="flex gap-6">
+              <div className="ml-6 w-24 h-24 -mt-12 rounded-3xl bg-red-500"></div>
+              <div className="text-white font-bold"style={{color:theme.heading}}>Daniel Lewis</div>
             </div>
-            <div className="text-white mt-12 line-clamp-2">
+            <div className="text-white mt-8" style={{color:theme.subContent}}>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem
               deserunt debitis necessitatibus laboriosam? Iure quos nulla
               recusandae, dolores nesciunt fuga sed assumenda repudiandae,
               architecto molestiae eos unde, nihil veritatis illo.
             </div>
           </div>
-        </TriggerButton>
-  
-        {/* Modal */}
-        <Modal
-          aria-labelledby="keep-mounted-modal-title"
-          aria-describedby="keep-mounted-modal-description"
-          open={open}
-          onClose={handleClose}
-          slots={{ backdrop: StyledBackdrop }}
-          keepMounted
-        >
-          <ModalContent sx={{ width: 400, backgroundColor:"transparent" }} className=" bg-transparent">
-            <div className="bg-gray-800 rounded-3xl p-6">
-              <div className="flex gap-6">
-                <div className="ml-6 w-24 h-24 -mt-12 rounded-3xl bg-red-500"></div>
-                <div className="text-white font-bold">Daniel Lewis</div>
-              </div>
-              <div className="text-white mt-8">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem
-                deserunt debitis necessitatibus laboriosam? Iure quos nulla
-                recusandae, dolores nesciunt fuga sed assumenda repudiandae,
-                architecto molestiae eos unde, nihil veritatis illo.
-              </div>
-            </div>
-          </ModalContent>
-        </Modal>
-      </div>
-    );
-  };
+        </ModalContent>
+      </Modal>
+    </div>
+  );
+};
 
 export default function Testimonials() {
+  const{theme}=useColor()
   return (
     <>
       <div className="">
-        <div className=" text-3xl font-bold mt-4 mb-4">Testimonials</div>
+        <div className=" text-3xl font-bold mt-4 mb-4" style={{color:theme.heading}}>Testimonials</div>
       </div>
       <div className="w-full overflow-x-scroll flex gap-2 pt-12">
         {Object.values([1, 2, 3, 4]).map((data, index) => (
@@ -146,7 +151,9 @@ const ModalContent = styled("div")(
     margin-top:-72px;
     border: 0px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
 
-      ${theme.palette.mode === "dark" ? "rgb(0 0 0 / 0.5)" : "rgb(0 0 0 / 0.2)"};
+      ${
+        theme.palette.mode === "dark" ? "rgb(0 0 0 / 0.5)" : "rgb(0 0 0 / 0.2)"
+      };
     color: ${theme.palette.mode === "dark" ? grey[50] : grey[900]};
 
     & .modal-title {
@@ -175,14 +182,16 @@ const TriggerButton = styled("button")(
     border-radius: 8px;
     transition: all 150ms ease;
     cursor: pointer;
-    background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
+    background: ${theme.palette.mode === "dark" ? grey[900] : "transparent"};
     border: 0px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
     color: ${theme.palette.mode === "dark" ? grey[200] : grey[900]};
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 
     &:hover {
-    //   background: ${theme.palette.mode === "dark" ? grey[800] : grey[50]};
-    //   border-color: ${theme.palette.mode === "dark" ? grey[600] : grey[300]};
+      //   background: ${theme.palette.mode === "dark" ? grey[800] : grey[50]};
+      //   border-color: ${theme.palette.mode === "dark"
+        ? grey[600]
+        : grey[300]};
     }
 
     &:active {
