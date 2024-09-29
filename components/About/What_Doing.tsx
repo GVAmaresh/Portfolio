@@ -32,7 +32,7 @@ export default function What_Doing() {
           container
           spacing={2}
           justifyContent="center"
-          marginTop={5}
+          marginTop={2}
         >
           <Grid item xs={10}>
             <Grid container justifyContent="center" spacing={4}>

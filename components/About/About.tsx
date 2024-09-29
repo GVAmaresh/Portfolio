@@ -2,14 +2,16 @@ import { useColor } from "@/app/ColorContext";
 import Heading from "../Others/Heading";
 import Testimonials from "./Testimonials";
 import What_Doing from "./What_Doing";
+import Leetcode from "./Leetcode";
 
 export default function About() {
   const{theme} = useColor()
   return (
-    <>
+    <div>
       <div className="mt-2 md:mt-4 lg:-mt-6">
         <Heading value={"About Me"} />
         <div className="" style={{color:theme.subContent}}>
+          {/* <Sample/> */}
           <div className=" text-sm mt-4">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos id
             assumenda veritatis, ipsam corporis laudantium sequi vel mollitia
@@ -28,8 +30,11 @@ export default function About() {
         <What_Doing />
       </div>
       <div className="">
+        <Leetcode/>
+      </div>
+      <div className="">
         <Testimonials />
       </div>
-    </>
+    </div>
   );
 }

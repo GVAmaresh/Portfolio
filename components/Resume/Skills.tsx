@@ -69,8 +69,11 @@ export default function Skills() {
         <div className=" font-bold text-3xl mb-4" style={{color:theme.heading}}>My Skills</div>
         <div className="border-2 rounded-3xl pb-6 ml-1 lg:ml-4">
           {Object.values([1, 2, 3, 4]).map((data, index) => (
+          <div className="" key={index}>
             <GetSkills />
+            </div>
           ))}
+
         </div>
       </div>
     </>

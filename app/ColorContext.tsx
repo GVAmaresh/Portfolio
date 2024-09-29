@@ -15,6 +15,9 @@ interface Theme {
   box:string;
   logo:string;
   socialMediaLogo: string;
+  easyColor:string;
+  mediumColor:string;
+  hardColor:string;
 }
 
 type ThemeKeys = keyof typeof themes;
@@ -28,12 +31,15 @@ const ColorContext = createContext<ColorContextProps | undefined>(undefined);
 
 export const ColorProvider = ({ children }: { children: ReactNode }) => {
   const colorKeys = Object.keys(themes) as ThemeKeys[];
+  
   const [currentColor, setCurrentColor] = useState<ThemeKeys>(() => {
-    // Retrieve the saved color from localStorage or default to the first color
-    const savedColor = localStorage.getItem("currentColor");
-    return savedColor && colorKeys.includes(savedColor as ThemeKeys)
-      ? (savedColor as ThemeKeys)
-      : colorKeys[0];
+    if (typeof window !== "undefined") {
+      const savedColor = localStorage.getItem("currentColor");
+      return savedColor && colorKeys.includes(savedColor as ThemeKeys)
+        ? (savedColor as ThemeKeys)
+        : colorKeys[0];
+    }
+    return colorKeys[0]; 
   });
 
   useEffect(() => {

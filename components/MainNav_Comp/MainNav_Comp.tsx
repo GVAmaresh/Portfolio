@@ -60,15 +60,24 @@ const CustomTab = styled(Tab)(({  }) => ({
 }));
 
 export default function MainNav_Comp() {
-  const [value, setValue] = React.useState<number>(()=>{
-    const savedPage = localStorage.getItem('savedPage');
-    return savedPage && parseInt(savedPage) >= 0? parseInt(savedPage) : 0;
-  });
-
+  const [value, setValue] = React.useState<number>(0);
+  
+  // Load saved page value only on the client side
   React.useEffect(() => {
-    localStorage.setItem("savedPage",`${value}`);
+    if (typeof window !== 'undefined') {
+      const savedPage = localStorage.getItem('savedPage');
+      if (savedPage && parseInt(savedPage) >= 0) {
+        setValue(parseInt(savedPage));
+      }
+    }
+  }, []);
+
+  // Save page value to local storage whenever it changes
+  React.useEffect(() => {
+    localStorage.setItem("savedPage", `${value}`);
   }, [value]);
   const { theme } = useColor(); 
+
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);

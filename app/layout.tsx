@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+
 import SideNav from "./SideNav";
 import { ColorProvider } from "./ColorContext";
-
+import ConvertingRedux from "./ConvertingRedux";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ColorProvider>
-          <SideNav> {children}</SideNav>
+          <ConvertingRedux>
+            <SideNav> {children}</SideNav>
+          </ConvertingRedux>
         </ColorProvider>
       </body>
     </html>

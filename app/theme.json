@@ -13,7 +13,10 @@
     "logo": "#E2B203",
     "socialMediaLogo": "#B3B9C4",
     "boxShadow": "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
-    "backgroundColor": "#101214"
+    "backgroundColor": "#101214",
+    "easyColor":"#06B6D4",
+    "mediumColor":"#D97706",
+    "hardColor":"#C53030"
   },
   "grey": {
     "borderColor": "#ddd",
@@ -29,7 +32,10 @@
     "logo": "#B3B9C4",
     "socialMediaLogo": "#D6D6D6",
     "boxShadow": "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
-    "backgroundColor": "#3a3a3a"
+    "backgroundColor": "#3a3a3a",
+    "easyColor":"#06B6D4",
+    "mediumColor":"#D97706",
+    "hardColor":"#C53030"
   },
   "blue": {
     "borderColor": "#1976d2",
@@ -45,7 +51,10 @@
     "logo": "#E2B203",
     "socialMediaLogo": "#42A5F5",
     "boxShadow": "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
-    "backgroundColor": "#0D47A1"
+    "backgroundColor": "#0D47A1",
+    "easyColor":"#06B6D4",
+    "mediumColor":"#D97706",
+    "hardColor":"#C53030"
   },
   "green": {
     "borderColor": "#164B35",
@@ -61,7 +70,10 @@
     "logo": "#E2B203",
     "socialMediaLogo": "#4CAF50",
     "boxShadow": "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
-    "backgroundColor": "#1C3329"
+    "backgroundColor": "#1C3329",
+    "easyColor":"#06B6D4",
+    "mediumColor":"#D97706",
+    "hardColor":"#C53030"
   },
   "yellow": {
     "borderColor": "#FFEB3B",
@@ -77,7 +89,10 @@
     "logo": "#E2B203",
     "socialMediaLogo": "#FFEB3B",
     "boxShadow": "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
-    "backgroundColor": "#FBC02D"
+    "backgroundColor": "#FBC02D",
+    "easyColor":"#06B6D4",
+    "mediumColor":"#D97706",
+    "hardColor":"#C53030"
   },
   "brown": {
     "borderColor": "#795548",
@@ -93,6 +108,9 @@
     "logo": "#E2B203",
     "socialMediaLogo": "#BCAAA4",
     "boxShadow": "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
-    "backgroundColor": "#5D4037"
+    "backgroundColor": "#5D4037",
+    "easyColor":"#06B6D4",
+    "mediumColor":"#D97706",
+    "hardColor":"#C53030"
   }
 }

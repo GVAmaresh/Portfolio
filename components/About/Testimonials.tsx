@@ -68,7 +68,9 @@ export default function Testimonials() {
       </div>
       <div className="w-full overflow-x-scroll flex gap-2 pt-12">
         {Object.values([1, 2, 3, 4]).map((data, index) => (
+          <div className="" key={index}>
           <TestimonialsComponent />
+          </div>
         ))}
       </div>
     </>

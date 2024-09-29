@@ -33,7 +33,7 @@ export default function CustomBottomNavigation() {
         <div className="flex gap-4" style={{color:theme.subContent}}>
           <div className=" text-xs md:text-lg">All</div>
           {Object.values([1, 2, 3, 4]).map((data, index) => (
-            <div className=" text-xs md:text-lg">Web Design</div>
+            <div className=" text-xs md:text-lg" key={index}>Web Design</div>
           ))}
         </div>
         <div className="flex justify-evenly flex-wrap">

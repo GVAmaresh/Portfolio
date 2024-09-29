@@ -92,7 +92,7 @@ export default function Side_Comp_lg() {
         <div className="border-b-2 border-gray-100 mt-4"></div>
         <div className="">
           {details.map((detail, index) => (
-            <div className=" flex justify-start mt-1 ml-2">
+            <div className=" flex justify-start mt-1 ml-2" key={index}>
               <Side_Component_Details
                 key={index}
                 icon={detail.icon}

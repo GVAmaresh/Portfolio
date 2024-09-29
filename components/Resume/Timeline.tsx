@@ -56,7 +56,9 @@ function TimelineComponents() {
         </div>
         <div className="">
           {Object.values([1, 2, 3, 4]).map((data, index) => (
+            <div className="" key={index}>
             <GetTimeline />
+            </div>
           ))}
         </div>
       </div>

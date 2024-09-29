@@ -10,9 +10,12 @@ import { FaLocationDot, FaLinkedin, FaTwitter } from "react-icons/fa6";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Side_Component_Details from "./Side_Comp_Details";
 import { SiLeetcode } from "react-icons/si";
+import { RootState } from "@/redux/store";
 import { useColor } from "@/app/ColorContext";
+import { useSelector } from "react-redux";
 
 export default function Side_Comp() {
+  const { userName } = useSelector((state: RootState) => state.user);
   const { theme } = useColor();
   const [data, setData] = React.useState<string[] | []>([
     "Web Developer",
@@ -86,7 +89,7 @@ export default function Side_Comp() {
                 className="text-center font-bold"
                 style={{ color: theme.heading }}
               >
-                G V Amaresh
+                {userName}
               </div>
               <div className="flex flex-wrap gap-2 justify-center">
                 {data.map((d, index) => (
