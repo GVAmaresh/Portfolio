@@ -9,6 +9,20 @@ import Image from "next/image";
 import { title } from "process";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+// import Navigation from "swiper";
+// import EffectCards from "swiper";
+import { Navigation, Pagination, EffectCards } from "swiper/modules";
+// import Pagination from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-coverflow";
+import "swiper/css/free-mode";
+import "swiper/css/effect-cards";
 
 const Portfolio = ({
   title,
@@ -25,27 +39,28 @@ const Portfolio = ({
   const isMobile = useMediaQuery("(max-width:600px)");
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
   return (
     <div>
       <div className="mt-4">
-      <TriggerButton type="button" onClick={handleOpen}>
-        <div className="w-72 h-1/2 md:w-80 lg:w-80 cursor-pointer">
-          <CardMedia
-            component="img"
-            src={photo[0]}
-            alt={title}
-            height={50}
-            className=" rounded-xl md:rounded-2xl"
-            width={200}
-          />
-        </div>
+        <TriggerButton type="button" onClick={handleOpen}>
+          <div className="w-72 h-1/2 md:w-80 lg:w-80 cursor-pointer">
+            <CardMedia
+              component="img"
+              src={photo[1]}
+              alt={title}
+              height={50}
+              className="rounded-xl md:rounded-2xl"
+              width={200}
+            />
+          </div>
         </TriggerButton>
         <div className="pl-4 pt-2">
-          <div className=" font-bold" style={{ color: theme.heading }}>
+          <div className="font-bold" style={{ color: theme.heading }}>
             {title}
           </div>
           <div
-            className=" font-medium text-sm w-72 h-1/2 md:w-80 lg:w-80 line-clamp-2"
+            className="font-medium text-sm w-72 h-1/2 md:w-80 lg:w-80 line-clamp-2"
             style={{ color: theme.subContent }}
           >
             {description}
@@ -61,44 +76,100 @@ const Portfolio = ({
         keepMounted
       >
         <ModalContent
-          sx={{ width: isMobile ? '100%' : 1000,  backgroundColor: "transparent" }}
-          className=" bg-transparent"
+          sx={{
+            width: isMobile ? "90%" : "90%",
+            height:"auto",
+  
+            backgroundColor: "transparent"
+          }}
+          className="bg-transparent"
         >
           <div className="bg-gray-800 rounded-3xl p-6">
-            <div className="">
-              
+            <div>
+              <Swiper
+                effect="cards"
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView={isMobile ? 1 : 3}
+                pagination={{ clickable: false }}
+                autoplay={{ delay: 3000 }}
+                loop={true}
+                spaceBetween={10}
+                modules={[EffectCards, Pagination]}
+                cardsEffect={{
+                  perSlideOffset: 4,
+                  perSlideRotate: 4,
+                  rotate: true,
+                  slideShadows: true
+                }}
+              >
+                {photo.map((link, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="card">
+                      <img
+                        src={link}
+                        alt={`Slide ${index + 1}`}
+                        style={{
+                          width: "100%",
+                          height: "auto",
+                          borderRadius: "10px"
+                        }}
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
-            <div className="flex gap-6">
-              {/* <div
-                className="ml-6 w-24 h-24 -mt-6 rounded-3xl"
-                style={{ zIndex: 1000, backgroundColor: theme.box }}
-              ></div> */}
+            <div className="flex gap-6 mt-4 pl-1 md:pl-6 lg:pl-12">
               <div
-                className="text-white font-bold -mt-6"
+                className="text-white font-bold"
                 style={{ color: theme.heading }}
               >
                 {title}
                 <div className="flex flex-col">
                   <div
-                    className=" text-sm font-normal"
+                    className="text-sm font-normal"
                     style={{ color: theme.subContent }}
                   >
                     {description}
                   </div>
-                  <div
-                    className=" text-sm font-normal"
-                    style={{ color: theme.subContent }}
-                  >
-                    {github}
+                  <div className=" flex flex-wrap gap-3 mt-3">
+                    {category.map((data, index) => (
+                      <div
+                        className=" mt-1 text-sm font-medium"
+                        key={index}
+                        style={{ color: theme.subContent }}
+                      >
+                        <a href={data}>{data}</a>
+                      </div>
+                    ))}
+                  </div>
+                  <div className=" flex flex-wrap gap-3 mt-3">
+                    {github.map((data, index) => (
+                      <div
+                        className=" mt-1 text-sm font-bold cursor-pointer"
+                        key={index}
+                        style={{ color: theme.subContent }}
+                      >
+                        <span className="inline-block w-2 h-2 bg-slate-500 rounded-full mr-1"></span>
+                        <a href={data}>{data}</a>
+                      </div>
+                    ))}
+                  </div>
+                  <div className=" flex flex-wrap gap-3 mt-3">
+                    {liveSite.map((data, index) => (
+                      <div
+                        className=" mt-1 text-sm font-bold cursor-pointer"
+                        key={index}
+                        style={{ color: theme.subContent }}
+                      >
+                        <span className="inline-block w-2 h-2 bg-slate-500 rounded-full mr-1"></span>
+                        <a href={data}>{data}</a>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              className="text-white mt-8"
-              style={{ color: theme.subContent }}
-            >
-              {description}
             </div>
           </div>
         </ModalContent>
@@ -106,6 +177,7 @@ const Portfolio = ({
     </div>
   );
 };
+
 export default function CustomBottomNavigation() {
   const { groups, my_projects } = useSelector(
     (state: RootState) => state.project
@@ -123,7 +195,7 @@ export default function CustomBottomNavigation() {
             <div
               className="text-xs md:text-lg cursor-pointer"
               key={index}
-              style={{ fontWeight: index === groupNumber ? 800 : 500 }} 
+              style={{ fontWeight: index === groupNumber ? 800 : 500 }}
               onClick={() => handleChange(index)}
             >
               {data}
@@ -156,7 +228,6 @@ export default function CustomBottomNavigation() {
     </div>
   );
 }
-
 
 const Backdrop = React.forwardRef<
   HTMLDivElement,

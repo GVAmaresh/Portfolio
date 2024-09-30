@@ -15,7 +15,27 @@ body {
   -ms-user-select: none;
   user-select: none; 
 }
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px; /* Rounded corners */
+}
 
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white; /* Change text color */
+}
+
+.card:hover img {
+  transform: scale(1.05); /* Scale image on hover */
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
