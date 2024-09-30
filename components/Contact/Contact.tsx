@@ -2,17 +2,20 @@ import { Input } from "postcss";
 import Heading from "../Others/Heading";
 import { BsSendFill } from "react-icons/bs";
 import { useColor } from "@/app/ColorContext";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 const GetMap = () => {
   const { theme } = useColor();
+  const{map}=useSelector((state:RootState)=>state.contact)
   return (
-    <>
+    <div>
       <div
         className=" w-full md:w-5/6 lg:w-3/4 h-96 "
         style={{ boxShadow: theme.boxShadow }}
       >
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.2668467100134!2d77.5706285751567!3d12.954769087359047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15faaa74dd43%3A0x517b0248e308423b!2sSri%20Madhwa%20Yuvaka%20Sangha!5e0!3m2!1sen!2sin!4v1707397865438!5m2!1sen!2sin"
+          src={map}
           width="100%"
           height="100%"
           className="rounded-3xl"
@@ -21,14 +24,14 @@ const GetMap = () => {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-    </>
+    </div>
   );
 };
 
 const GetContactForm = () => {
   const { theme } = useColor();
   return (
-    <>
+    <div>
       <div className="">
         <div className="flex flex-col md:flex-row justify-center lg:justify-evenly gap-2 lg:gap-3">
           <div className="w-full md:w-10/12">
@@ -71,14 +74,14 @@ const GetContactForm = () => {
           <div className="" style={{color:theme.subContent}}>Send Message</div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
 export default function Contact() {
   const{theme}=useColor()
   return (
-    <>
+    <div>
       <div className="">
         <Heading value={"Contact"} />
         <div className=" mt-6 flex justify-center">
@@ -89,6 +92,6 @@ export default function Contact() {
           <GetContactForm />
         </div>
       </div>
-    </>
+    </div>
   );
 }

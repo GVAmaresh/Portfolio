@@ -1,36 +1,34 @@
 import { useColor } from "@/app/ColorContext";
 import Heading from "../Others/Heading";
-import Testimonials from "./Testimonials";
+import Testimonials from "./testimonials";
 import What_Doing from "./What_Doing";
 import Leetcode from "./Leetcode";
+import WhatIKnow from "./whatIKnow";
+import { useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/redux/store";
 
 export default function About() {
-  const{theme} = useColor()
+  const { introduction } = useSelector((state: RootState) => state.about);
+  const { theme } = useColor();
+
   return (
     <div>
       <div className="mt-2 md:mt-4 lg:-mt-6">
         <Heading value={"About Me"} />
-        <div className="" style={{color:theme.subContent}}>
-          {/* <Sample/> */}
-          <div className=" text-sm mt-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos id
-            assumenda veritatis, ipsam corporis laudantium sequi vel mollitia
-            explicabo voluptatem totam perferendis pariatur voluptatum
-            accusantium neque incidunt repellendus eveniet dolorum!{" "}
-          </div>
-          <div className="text-sm mt-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-            explicabo minus, sint illo magnam quidem magni molestiae, iure
-            itaque corporis sunt eaque numquam nulla vitae ratione quaerat
-            doloribus in ea!
-          </div>
+        <div className="" style={{ color: theme.subContent }}>
+          {introduction.map((e) => (
+            <div className=" text-base mt-4">{e}</div>
+          ))}
         </div>
       </div>
       <div className="">
         <What_Doing />
       </div>
       <div className="">
-        <Leetcode/>
+        <WhatIKnow />
+      </div>
+      <div className="">
+        <Leetcode />
       </div>
       <div className="">
         <Testimonials />

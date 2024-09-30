@@ -1,0 +1,433 @@
+{
+  "aboutMe": {
+    "introduction": [
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos id assumenda veritatis, ipsam corporis laudantium sequi vel mollitia explicabo voluptatem totam perferendis pariatur voluptatum accusantium neque incidunt repellendus eveniet dolorum!",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate explicabo minus, sint illo magnam quidem magni molestiae, iure itaque corporis sunt eaque numquam nulla vitae ratione quaerat doloribus in ea!"
+    ],
+    "testimonials": [
+      {
+        "company": "XYZ Corp.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "name": "John Doe",
+        "photo": "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "position": "Software Engineer"
+      },
+      {
+        "company": "XYZ Corp.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "name": "John Doe",
+        "photo": "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "position": "Software Engineer"
+      },
+      {
+        "company": "XYZ Corp.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "name": "John Doe",
+        "photo": "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "position": "Software Engineer"
+      },
+      {
+        "company": "XYZ Corp.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "name": "John Doe",
+        "photo": "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "position": "Software Engineer"
+      },
+      {
+        "company": "XYZ Corp.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "name": "John Doe",
+        "photo": "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "position": "Software Engineer"
+      }
+    ],
+    "whatIKnow": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "GraphQL",
+      "Apollo Client",
+      "Redux",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "MySQL",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "Kubernetes",
+      "AWS Lambda",
+      "AWS S3",
+      "AWS EC2"
+    ],
+    "whatIamDoing": [
+      {
+        "description": "The most modern and high-quality design made at a professional level.",
+        "logo": "code",
+        "title": "Web Development"
+      },
+      {
+        "description": "The most modern and high-quality design made at a professional level.",
+        "logo": "code",
+        "title": "Web Development"
+      },
+      {
+        "description": "The most modern and high-quality design made at a professional level.",
+        "logo": "code",
+        "title": "Web Development"
+      },
+      {
+        "description": "The most modern and high-quality design made at a professional level.",
+        "logo": "code",
+        "title": "Web Development"
+      }
+    ]
+  },
+  "contact": {
+    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.2668467100134!2d77.5706285751567!3d12.954769087359047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15faaa74dd43%3A0x517b0248e308423b!2sSri%20Madhwa%20Yuvaka%20Sangha!5e0!3m2!1sen!2sin!4v1707397865438!5m2!1sen!2sin"
+  },
+  "projects": {
+    "groups": [
+      "All",
+      "Web Development",
+      "Machine Learning"
+    ],
+    "my_projects": [
+      {
+        "category": [
+          "Web Development"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "github": [
+          "https://github.com/GVAmaresh/"
+        ],
+        "liveSite": [
+          "https://"
+        ],
+        "photo": [
+          "https://i.redd.it/rlmlx5y0pgk91.jpg",
+          "https://images5.alphacoders.com/102/1022303.png",
+          "https://c4.wallpaperflare.com/wallpaper/247/683/617/anime-one-punch-man-garou-one-punch-man-genos-one-punch-man-saitama-one-punch-man-hd-wallpaper-preview.jpg"
+        ],
+        "priority": 1,
+        "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "GraphQL",
+          "Apollo Client",
+          "Nodejs",
+          "MongoDB"
+        ],
+        "title": "SMYS"
+      },
+      {
+        "category": [
+          "Web Development"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "github": [
+          "https://github.com/GVAmaresh/"
+        ],
+        "liveSite": [
+          "https://"
+        ],
+        "photo": [
+          "https://i.redd.it/rlmlx5y0pgk91.jpg",
+          "https://images5.alphacoders.com/102/1022303.png",
+          "https://c4.wallpaperflare.com/wallpaper/247/683/617/anime-one-punch-man-garou-one-punch-man-genos-one-punch-man-saitama-one-punch-man-hd-wallpaper-preview.jpg"
+        ],
+        "priority": 2,
+        "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "GraphQL",
+          "Apollo Client",
+          "Nodejs",
+          "MongoDB"
+        ],
+        "title": "SMYS"
+      },
+      {
+        "category": [
+          "Web Development"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "github": [
+          "https://github.com/GVAmaresh/"
+        ],
+        "liveSite": [
+          "https://"
+        ],
+        "photo": [
+          "https://i.redd.it/rlmlx5y0pgk91.jpg",
+          "https://images5.alphacoders.com/102/1022303.png",
+          "https://c4.wallpaperflare.com/wallpaper/247/683/617/anime-one-punch-man-garou-one-punch-man-genos-one-punch-man-saitama-one-punch-man-hd-wallpaper-preview.jpg"
+        ],
+        "priority": 3,
+        "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "GraphQL",
+          "Apollo Client",
+          "Nodejs",
+          "MongoDB"
+        ],
+        "title": "SMYS"
+      },
+      {
+        "category": [
+          "Web Development"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "github": [
+          "https://github.com/GVAmaresh/"
+        ],
+        "liveSite": [
+          "https://"
+        ],
+        "photo": [
+          "https://i.redd.it/rlmlx5y0pgk91.jpg",
+          "https://images5.alphacoders.com/102/1022303.png",
+          "https://c4.wallpaperflare.com/wallpaper/247/683/617/anime-one-punch-man-garou-one-punch-man-genos-one-punch-man-saitama-one-punch-man-hd-wallpaper-preview.jpg"
+        ],
+        "priority": 4,
+        "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "GraphQL",
+          "Apollo Client",
+          "Nodejs",
+          "MongoDB"
+        ],
+        "title": "SMYS"
+      },
+      {
+        "category": [
+          "Web Development"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "github": [
+          "https://github.com/GVAmaresh/"
+        ],
+        "liveSite": [
+          "https://"
+        ],
+        "photo": [
+          "https://i.redd.it/rlmlx5y0pgk91.jpg",
+          "https://images5.alphacoders.com/102/1022303.png",
+          "https://c4.wallpaperflare.com/wallpaper/247/683/617/anime-one-punch-man-garou-one-punch-man-genos-one-punch-man-saitama-one-punch-man-hd-wallpaper-preview.jpg"
+        ],
+        "priority": 5,
+        "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "GraphQL",
+          "Apollo Client",
+          "Nodejs",
+          "MongoDB"
+        ],
+        "title": "SMYS"
+      },
+      {
+        "category": [
+          "Web Development"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "github": [
+          "https://github.com/GVAmaresh/"
+        ],
+        "liveSite": [
+          "https://"
+        ],
+        "photo": [
+          "https://i.redd.it/rlmlx5y0pgk91.jpg",
+          "https://images5.alphacoders.com/102/1022303.png",
+          "https://c4.wallpaperflare.com/wallpaper/247/683/617/anime-one-punch-man-garou-one-punch-man-genos-one-punch-man-saitama-one-punch-man-hd-wallpaper-preview.jpg"
+        ],
+        "priority": 6,
+        "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "GraphQL",
+          "Apollo Client",
+          "Nodejs",
+          "MongoDB"
+        ],
+        "title": "SMYS"
+      },
+      {
+        "category": [
+          "Web Development"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "github": [
+          "https://github.com/GVAmaresh/"
+        ],
+        "liveSite": [
+          "https://"
+        ],
+        "photo": [
+          "https://i.redd.it/rlmlx5y0pgk91.jpg",
+          "https://images5.alphacoders.com/102/1022303.png",
+          "https://c4.wallpaperflare.com/wallpaper/247/683/617/anime-one-punch-man-garou-one-punch-man-genos-one-punch-man-saitama-one-punch-man-hd-wallpaper-preview.jpg"
+        ],
+        "priority": 7,
+        "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "GraphQL",
+          "Apollo Client",
+          "Nodejs",
+          "MongoDB"
+        ],
+        "title": "SMYS"
+      },
+      {
+        "category": [
+          "Web Development"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "github": [
+          "https://github.com/GVAmaresh/"
+        ],
+        "liveSite": [
+          "https://"
+        ],
+        "photo": [
+          "https://i.redd.it/rlmlx5y0pgk91.jpg",
+          "https://images5.alphacoders.com/102/1022303.png",
+          "https://c4.wallpaperflare.com/wallpaper/247/683/617/anime-one-punch-man-garou-one-punch-man-genos-one-punch-man-saitama-one-punch-man-hd-wallpaper-preview.jpg"
+        ],
+        "priority": 8,
+        "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "GraphQL",
+          "Apollo Client",
+          "Nodejs",
+          "MongoDB"
+        ],
+        "title": "SMYS"
+      }
+    ]
+  },
+  "resume": {
+    "education": {
+      "logo": "eduction",
+      "myEducation": [
+        {
+          "degree": "Bachelor of Technology",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "duration": "January 2021 - Present",
+          "major": "Computer Science & Engineering",
+          "schoolName": "Dayananda Sagar College Of Engineering, Kumarswami Layout"
+        },
+        {
+          "degree": "Science",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "duration": "June 2019 - August 2021",
+          "major": "PCMS",
+          "schoolName": "Excellent PU College, Moodbidri"
+        },
+        {
+          "degree": "Bachelor of Technology",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "duration": "June 2018 - June 2019",
+          "major": "Computer Science & Engineering",
+          "schoolName": "Sri Sadguru Vidya Mandira, Basarikatte"
+        },
+        {
+          "degree": "Bachelor of Technology",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "duration": "June 2007 - April 2018",
+          "major": "Computer Science & Engineering",
+          "schoolName": "Sri Sathya Sai Jyothi Vidya Kendra ,Jayapura"
+        }
+      ],
+      "title": "Education"
+    },
+    "experience": {
+      "logo": "experience",
+      "myWork": [
+        {
+          "certificate": [
+            "Offer Letter -- https://link.com",
+            "Joining Letter -- https://link.com"
+          ],
+          "company": "givve name",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "duration": "January 2023 - Present",
+          "position": "Software Engineer"
+        },
+        {
+          "certificate": [
+            "Offer Letter -- https://link.com",
+            "Joining Letter -- https://link.com"
+          ],
+          "company": "givve name",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "duration": "January 2023 - Present",
+          "position": "Software Engineer"
+        },
+        {
+          "certificate": [
+            "Offer Letter -- https://link.com",
+            "Joining Letter -- https://link.com"
+          ],
+          "company": "givve name",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "duration": "January 2023 - Present",
+          "position": "Software Engineer"
+        },
+        {
+          "certificate": [
+            "Offer Letter -- https://link.com",
+            "Joining Letter -- https://link.com"
+          ],
+          "company": "givve name",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "duration": "January 2023 - Present",
+          "position": "Software Engineer"
+        }
+      ],
+      "title": "Experience"
+    },
+    "skills": [
+      "React -- 70%",
+      "Nodejs -- 80%",
+      "TypeScript -- 90%",
+      "GraphQL -- 85%",
+      "MongoDB -- 80%",
+      "AWS -- 75%",
+      "Docker -- 80%"
+    ]
+  },
+  "userDetails": {
+    "birthDate": "2 January, 2003",
+    "email": "reshama0302@gmail.com",
+    "field": [
+      "Web Development",
+      "Machine Learner",
+      "MERN Developer"
+    ],
+    "github_url": "https://github.com/GVAmaresh",
+    "leetcode_url": "https://leetcode.com/u/GVAmaresh/",
+    "linkedin_url": "https://www.linkedin.com/in/g-v-amaresh-b30238232",
+    "location": "Bengaluru, Karnataka, India",
+    "phoneNumber": "7899720344",
+    "photo": "",
+    "userName": "G V Amaresh"
+  }
+}

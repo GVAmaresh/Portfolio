@@ -28,7 +28,9 @@ function CustomTabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3, height: "600px", overflowY:"scroll" }}>{children}</Box>
+        <Box sx={{ p: 3, height: "600px", overflowY: "scroll" }}>
+          {children}
+        </Box>
       )}
     </div>
   );
@@ -41,43 +43,38 @@ function a11yProps(index: number) {
   };
 }
 
-const CustomTab = styled(Tab)(({  }) => ({
-  width:"120px",
-  
+const CustomTab = styled(Tab)(({}) => ({
+  width: "120px",
+
   "&.Mui-selected": {
     color: "white",
     borderRadius: 4,
     fontWeight: 900,
-    borderColor: "transparent",
+    borderColor: "transparent"
   },
   "&.Mui-focusVisible": {
-    outline: "none", 
+    outline: "none"
   },
   "&.Mui-focusVisible.Mui-selected": {
     borderBottom: "none",
-    border:"0px solid transparent"
-  },
+    border: "0px solid transparent"
+  }
 }));
 
 export default function MainNav_Comp() {
-  const [value, setValue] = React.useState<number>(0);
-  
-  // Load saved page value only on the client side
-  React.useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const savedPage = localStorage.getItem('savedPage');
-      if (savedPage && parseInt(savedPage) >= 0) {
-        setValue(parseInt(savedPage));
-      }
+  const [value, setValue] = React.useState<number>(()=>{
+    const savedPage = localStorage.getItem("savedPage");
+    if (savedPage && parseInt(savedPage) >= 0) {
+      return parseInt(savedPage)
     }
-  }, []);
+    return 0
+  });
 
-  // Save page value to local storage whenever it changes
+
   React.useEffect(() => {
     localStorage.setItem("savedPage", `${value}`);
   }, [value]);
-  const { theme } = useColor(); 
-
+  const { theme } = useColor();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -146,7 +143,7 @@ export default function MainNav_Comp() {
                 lg: "0 1.5rem 0rem 1.5rem"
               },
               zIndex: 1000,
-              backgroundColor:theme.mainNav
+              backgroundColor: theme.mainNav
             }}
             className="w-full lg:w-fit"
           >
@@ -158,7 +155,7 @@ export default function MainNav_Comp() {
               scrollButtons="auto"
               sx={{
                 "& .MuiTabs-indicator": {
-                  display: "none",
+                  display: "none"
                 },
                 "& .MuiTabs-flexContainer": {},
                 "& .MuiTab-root": {
@@ -178,7 +175,7 @@ export default function MainNav_Comp() {
                   },
                   "&:focus": {
                     fontWeight: 900,
-                    outline: "none",
+                    outline: "none"
                   }
                 }
               }}
@@ -186,7 +183,7 @@ export default function MainNav_Comp() {
               <CustomTab label="About Me" {...a11yProps(0)} />
               <CustomTab label="Resume" {...a11yProps(1)} />
               <CustomTab label="Portfolio" {...a11yProps(2)} />
-              <CustomTab label="Contact" {...a11yProps(3)} /> 
+              <CustomTab label="Contact" {...a11yProps(3)} />
               {/* <CustomTab label="Papers" {...a11yProps(3)} /> */}
             </Tabs>
           </Box>

@@ -4,12 +4,12 @@ import Timeline from "./Timeline";
 
 export default function Resume() {
   return (
-    <>
+    <div>
       <div className="mt-2 md:mt-4 lg:-mt-6">
         <Heading value={"Resume"} />
       </div>
       <Timeline />
       <Skills />
-    </>
+    </div>
   );
 }

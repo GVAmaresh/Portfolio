@@ -15,59 +15,84 @@ import { useColor } from "@/app/ColorContext";
 import { useSelector } from "react-redux";
 
 export default function Side_Comp() {
-  const { userName } = useSelector((state: RootState) => state.user);
   const { theme } = useColor();
-  const [data, setData] = React.useState<string[] | []>([
-    "Web Developer",
-    "MERN Developer",
-    "Machine Learner"
-  ]);
-  const [socialMedia, setSocialMedia] = React.useState([
-    {
-      name: "linkedin",
-      link: "https://www.linkedin.com/in/g-v-amaresh/",
-      icon: FaLinkedin,
-      color: "black"
-    },
-    {
-      name: "leetcode",
-      link: "https://leetcode.com/u/GVAmaresh/",
-      icon: SiLeetcode,
-      color: "black"
-    },
-    {
-      name: "github",
-      link: "https://github.com/GVAmaresh",
-      icon: FaGithub,
-      color: "black"
-    }
-  ]);
-  const [details, setDetails] = React.useState([
-    {
-      label: "Email",
-      value: "reshama0302@gmail.com",
-      icon: MdEmail,
-      link: "mailto:reshama0302@gmail.com"
-    },
-    {
-      label: "Phone No:",
-      value: "7899720344",
-      icon: IoPhonePortraitOutline,
-      link: "tel:7899720344"
-    },
-    {
-      label: "Birthday",
-      value: "2 January, 2003",
-      icon: FaBirthdayCake,
-      link: "#"
-    },
-    {
-      label: "Location",
-      value: "Bengaluru, Karnataka, India",
-      icon: FaLocationDot,
-      link: "#"
-    }
-  ]);
+  const {
+    birthDate,
+    email,
+    field,
+    github_url,
+    leetcode_url,
+    linkedin_url,
+    location,
+    phoneNumber,
+    photo,
+    userName
+  } = useSelector((state: RootState) => state.user);
+
+  // Local states
+  const [data, setData] = React.useState<string[]>([]);
+  const [socialMedia, setSocialMedia] = React.useState<any[]>([]);
+  const [details, setDetails] = React.useState<any[]>([]);
+
+  React.useEffect(() => {
+    setData(field);
+
+    setSocialMedia([
+      {
+        name: "linkedin",
+        link: linkedin_url,
+        icon: FaLinkedin,
+        color: "black"
+      },
+      {
+        name: "leetcode",
+        link: leetcode_url,
+        icon: SiLeetcode,
+        color: "black"
+      },
+      {
+        name: "github",
+        link: github_url,
+        icon: FaGithub,
+        color: "black"
+      }
+    ]);
+
+    setDetails([
+      {
+        label: "Email",
+        value: email,
+        icon: MdEmail,
+        link: `mailto:${email}`
+      },
+      {
+        label: "Phone No:",
+        value: phoneNumber,
+        icon: IoPhonePortraitOutline,
+        link: `tel:${phoneNumber}`
+      },
+      {
+        label: "Birthday",
+        value: birthDate,
+        icon: FaBirthdayCake,
+        link: ""
+      },
+      {
+        label: "Location",
+        value: location,
+        icon: FaLocationDot,
+        link: ""
+      }
+    ]);
+  }, [
+    email,
+    phoneNumber,
+    birthDate,
+    location,
+    linkedin_url,
+    leetcode_url,
+    github_url
+  ]); 
 
   return (
     <div className="flex-grow lg:flex-grow-0 h-11/12 lg:h-auto rounded-2xl overflow-hidden relative">

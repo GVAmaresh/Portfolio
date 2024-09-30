@@ -3,7 +3,21 @@ import clsx from "clsx";
 import { styled, css } from "@mui/system";
 import { Modal as BaseModal } from "@mui/base/Modal";
 import { useColor } from "@/app/ColorContext";
-const TestimonialsComponent = () => {
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+const TestimonialsComponent = ({
+  company,
+  name,
+  position,
+  photo,
+  description
+}: {
+  company: string;
+  name: string;
+  position: string;
+  photo: string;
+  description: string;
+}) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -11,24 +25,45 @@ const TestimonialsComponent = () => {
   return (
     <div className="">
       <TriggerButton type="button" onClick={handleOpen}>
-        <div className="min-w-96 h-44 rounded-3xl p-4 relative overflow-visible" style={{boxShadow:theme.boxShadow}}>
+        <div
+          className="min-w-96 h-44 rounded-3xl p-4 relative overflow-visible"
+          style={{ boxShadow: theme.boxShadow }}
+        >
           <div className="flex gap-6 relative">
             <div
               className="absolute ml-6 w-24 z-50 h-24 -mt-12 rounded-3xl"
               style={{ zIndex: 1000, backgroundColor: theme.box }}
             ></div>
-            <div className="text-white font-bold ml-32" style={{color:theme.heading}}>Daniel Lewis</div>
+            <div
+              className="text-white font-bold ml-32 -mt-6"
+              style={{ color: theme.heading }}
+            >
+              {name}
+              <div className="flex flex-col">
+                  <div
+                    className=" text-sm font-normal"
+                    style={{ color: theme.subContent }}
+                  >
+                    {position}
+                  </div>
+                  <div
+                    className=" text-sm font-normal"
+                    style={{ color: theme.subContent }}
+                  >
+                    {company}
+                  </div>
+                </div>
+            </div>
           </div>
-          <div className="text-white mt-12 line-clamp-2" style={{color:theme.subContent}}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem
-            deserunt debitis necessitatibus laboriosam? Iure quos nulla
-            recusandae, dolores nesciunt fuga sed assumenda repudiandae,
-            architecto molestiae eos unde, nihil veritatis illo.
+          <div
+            className="text-white mt-12 line-clamp-2"
+            style={{ color: theme.subContent }}
+          >
+            {description}
           </div>
         </div>
       </TriggerButton>
 
-      {/* Modal */}
       <Modal
         aria-labelledby="keep-mounted-modal-title"
         aria-describedby="keep-mounted-modal-description"
@@ -43,14 +78,36 @@ const TestimonialsComponent = () => {
         >
           <div className="bg-gray-800 rounded-3xl p-6">
             <div className="flex gap-6">
-              <div className="ml-6 w-24 h-24 -mt-12 rounded-3xl bg-red-500"></div>
-              <div className="text-white font-bold"style={{color:theme.heading}}>Daniel Lewis</div>
+              <div
+                className="ml-6 w-24 h-24 -mt-6 rounded-3xl"
+                style={{ zIndex: 1000, backgroundColor: theme.box }}
+              ></div>
+              <div
+                className="text-white font-bold -mt-6"
+                style={{ color: theme.heading }}
+              >
+                {name}
+                <div className="flex flex-col">
+                  <div
+                    className=" text-sm font-normal"
+                    style={{ color: theme.subContent }}
+                  >
+                    {position}
+                  </div>
+                  <div
+                    className=" text-sm font-normal"
+                    style={{ color: theme.subContent }}
+                  >
+                    {company}
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="text-white mt-8" style={{color:theme.subContent}}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem
-              deserunt debitis necessitatibus laboriosam? Iure quos nulla
-              recusandae, dolores nesciunt fuga sed assumenda repudiandae,
-              architecto molestiae eos unde, nihil veritatis illo.
+            <div
+              className="text-white mt-8"
+              style={{ color: theme.subContent }}
+            >
+              {description}
             </div>
           </div>
         </ModalContent>
@@ -60,16 +117,28 @@ const TestimonialsComponent = () => {
 };
 
 export default function Testimonials() {
-  const{theme}=useColor()
+  const { theme } = useColor();
+  const { testimonials } = useSelector((state: RootState) => state.about);
   return (
     <>
       <div className="">
-        <div className=" text-3xl font-bold mt-4 mb-4" style={{color:theme.heading}}>Testimonials</div>
+        <div
+          className=" text-3xl font-bold mt-4 mb-4"
+          style={{ color: theme.heading }}
+        >
+          Testimonials
+        </div>
       </div>
       <div className="w-full overflow-x-scroll flex gap-2 pt-12">
-        {Object.values([1, 2, 3, 4]).map((data, index) => (
+        {testimonials.map((data, index) => (
           <div className="" key={index}>
-          <TestimonialsComponent />
+            <TestimonialsComponent
+              company={data.company}
+              name={data.name}
+              position={data.position}
+              photo={data.photo}
+              description={data.description}
+            />
           </div>
         ))}
       </div>

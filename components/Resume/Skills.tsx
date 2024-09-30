@@ -11,6 +11,8 @@ import LinearProgress, {
 } from "@mui/material/LinearProgress";
 import { ThemeContext } from "@emotion/react";
 import { useColor } from "@/app/ColorContext";
+import { useSelector } from "react-redux";
+import { RootState } from '../../redux/store';
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -31,23 +33,23 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }));
 
 
-const GetSkills = () => {
+const GetSkills = ({skill}:{skill:string}) => {
   const { theme } = useColor();
   return (
     <>
       <div className="p-8 pt-4 pb-2">
         <div className=" mb-2 font-bold" style={{ color: theme.heading }}>
-          Web Design
+          {skill.split("--")[0]}
           <span
             className="pl-4 font-medium"
             style={{ color: theme.subContent }}
           >
-            50%
+            {skill.split("--")[1]}
           </span>
         </div>
         <BorderLinearProgress
           variant="determinate"
-          value={50}
+          value={parseInt(skill.split("--")[1])}
           sx={{
             "& .MuiLinearProgress-bar": {
               backgroundColor: theme.logo
@@ -63,14 +65,15 @@ const GetSkills = () => {
 
 export default function Skills() {
   const{theme}=useColor()
+  const{skills}=useSelector((state:RootState)=>state.resume)
   return (
     <>
       <div className="">
         <div className=" font-bold text-3xl mb-4" style={{color:theme.heading}}>My Skills</div>
         <div className="border-2 rounded-3xl pb-6 ml-1 lg:ml-4">
-          {Object.values([1, 2, 3, 4]).map((data, index) => (
+          {skills.map((data, index) => (
           <div className="" key={index}>
-            <GetSkills />
+            <GetSkills skill={data}/>
             </div>
           ))}
 
