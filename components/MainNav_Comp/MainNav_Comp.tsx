@@ -62,17 +62,19 @@ const CustomTab = styled(Tab)(({}) => ({
 }));
 
 export default function MainNav_Comp() {
-  const [value, setValue] = React.useState<number>(()=>{
+  const [value, setValue] = React.useState<number>(() => {
+    // Check if window is defined to avoid SSR issues
+    if (typeof window === 'undefined') return 0; // Default value if SSR
+
     const savedPage = localStorage.getItem("savedPage");
-    if (savedPage && parseInt(savedPage) >= 0) {
-      return parseInt(savedPage)
-    }
-    return 0
+    return savedPage && parseInt(savedPage) >= 0 ? parseInt(savedPage) : 0;
   });
 
-
   React.useEffect(() => {
-    localStorage.setItem("savedPage", `${value}`);
+    // Ensure localStorage is accessed only in the browser
+    if (typeof window !== 'undefined') {
+      localStorage.setItem("savedPage", value.toString());
+    }
   }, [value]);
   const { theme } = useColor();
 
