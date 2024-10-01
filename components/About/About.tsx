@@ -1,9 +1,9 @@
 import { useColor } from "@/app/ColorContext";
 import Heading from "../Others/Heading";
-import Testimonials from "./testimonials";
+import Testimonials from "./Testimonials";
 import What_Doing from "./What_Doing";
 import Leetcode from "./Leetcode";
-import WhatIKnow from "./whatIKnow";
+import WhatIKnow from "./WhatIKnow";
 import { useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/redux/store";
 
