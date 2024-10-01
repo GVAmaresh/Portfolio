@@ -121,7 +121,7 @@ export const fetchContactDetails = createAsyncThunk<
   async (_, { dispatch, rejectWithValue }) => {
     dispatch(fetchContactStart());
     try {
-      const contactDetailsRef = ref(db, "contact"); // Adjust the path to your Firebase structure
+      const contactDetailsRef = ref(db, "contact"); 
       const snapshot: DataSnapshot = await get(contactDetailsRef);
       if (snapshot.exists()) {
         const contactDetails: IContact = snapshot.val();

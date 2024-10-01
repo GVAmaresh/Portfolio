@@ -9,8 +9,8 @@ export interface IUserDetails {
   leetcode_url: string;
   github_url: string;
   field: string[];
-  loading: boolean;
-  error: string | null;
+  loading?: boolean;
+  error?: string | null;
 }
 
 export interface IWhatIamDoing {

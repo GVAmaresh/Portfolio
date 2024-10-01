@@ -44,7 +44,7 @@ const GetSkills = ({skill}:{skill:string}) => {
             className="pl-4 font-medium"
             style={{ color: theme.subContent }}
           >
-            {skill.split("--")[1]}
+            {skill.split("--")[0]}
           </span>
         </div>
         <BorderLinearProgress

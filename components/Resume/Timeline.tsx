@@ -165,10 +165,10 @@ export default function Timeline() {
     <>
       <div className="">
         <div className="">
-          <TimelineComponents education={education} />
+          <TimelineComponents experience={experience} />
         </div>
         <div className="">
-          <TimelineComponents experience={experience} />
+          <TimelineComponents education={education} />
         </div>
       </div>
     </>
