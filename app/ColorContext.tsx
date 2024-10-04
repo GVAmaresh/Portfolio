@@ -39,7 +39,6 @@ export const ColorProvider = ({ children }: { children: ReactNode }) => {
   const colorKeys = Object.keys(themes) as ThemeKeys[];
 
   const [currentColor, setCurrentColor] = useState<ThemeKeys>(() => {
-    // Check if window is defined to avoid SSR issues
     if (typeof window === 'undefined') return colorKeys[0];
     
     const savedColor = localStorage.getItem("currentColor");
@@ -49,7 +48,6 @@ export const ColorProvider = ({ children }: { children: ReactNode }) => {
   });
 
   useEffect(() => {
-    // Ensure localStorage is accessed only in the browser
     if (typeof window !== 'undefined') {
       localStorage.setItem("currentColor", currentColor);
     }
