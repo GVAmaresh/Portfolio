@@ -1,23 +1,31 @@
 import { useColor } from "@/app/ColorContext";
 import { RootState } from "@/redux/store";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
 import { IEducation, IMyEducation } from "@/redux/Interface";
 import { MdDelete } from "react-icons/md";
 
-export const EditEducationDetails = () => {
+export const EditEducationDetails = ({ saveData }: { saveData: boolean }) => {
   const { theme } = useColor();
   const { education: reduxEducation } = useSelector(
     (state: RootState) => state.resume
   );
 
   const [education, setEducation] = useState<IEducation | null>(null);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log(saveData);
+    if (saveData) {
+      console.log(education);
+      education && dispatch(addEducation(education));
+    }
+  }, [saveData, dispatch]);
 
   useEffect(() => {
     setEducation(reduxEducation);
@@ -68,7 +76,6 @@ export const EditEducationDetails = () => {
 
   const handleSave = () => {
     console.log("Saved Education Details: ", education);
-    // Add your save logic here (e.g., dispatching an action or API call)
   };
 
   return (
@@ -169,15 +176,28 @@ export const EditEducationDetails = () => {
 };
 
 import { IExperience, IMyWork } from "@/redux/Interface";
-import { Certificate } from "crypto";
+import {
+  addEducation,
+  addExperience,
+  addSkills
+} from "@/redux/redux/resumeDetails";
 
-export const EditExperienceDetails = () => {
+export const EditExperienceDetails = ({ saveData }: { saveData: boolean }) => {
   const { theme } = useColor();
   const { experience: reduxExperience } = useSelector(
     (state: RootState) => state.resume
   );
 
   const [experience, setExperience] = useState<IExperience | null>(null);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log(saveData);
+    if (saveData) {
+      console.log(experience);
+      experience && dispatch(addExperience(experience));
+    }
+  }, [saveData, dispatch]);
 
   useEffect(() => {
     setExperience(reduxExperience);
@@ -289,7 +309,7 @@ export const EditExperienceDetails = () => {
                         label={`Certificate ${index + 1}`}
                         variant="outlined"
                         fullWidth
-                        value={cert} 
+                        value={cert}
                         onChange={(e) =>
                           handleInputChange(
                             index,
@@ -315,11 +335,67 @@ export const EditExperienceDetails = () => {
               <AddIcon />
             </IconButton>
           </div>
-          <Button onClick={handleSave} variant="contained" color="primary">
-            Save
-          </Button>
         </div>
       )}
+    </div>
+  );
+};
+
+export const EditSkillsDetails = ({ saveData }: { saveData: boolean }) => {
+  const { theme } = useColor();
+  const { skills: reduxSkills } = useSelector(
+    (state: RootState) => state.resume
+  );
+  const [skills, setSkills] = useState<string[]>([]);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log(saveData);
+    if (saveData) {
+      console.log(skills);
+      dispatch(addSkills(skills));
+    }
+  }, [saveData, dispatch]);
+
+  useEffect(() => {
+    setSkills(reduxSkills);
+  }, [reduxSkills]);
+
+  const handleSkillChange = (index: number, value: string) => {
+    const updatedSkills = [...skills];
+    updatedSkills[index] = value;
+    setSkills(updatedSkills);
+  };
+
+  const handleAddSkill = () => {
+    setSkills([...skills, ""]);
+  };
+
+  return (
+    <div className="p-4">
+      <div className="mb-3" style={{ color: theme.subContent }}>
+        Skills
+      </div>
+      <div className="flex flex-wrap gap-3">
+        {skills.map((skill, index) => (
+          <div className="">
+            <TextField
+              key={index}
+              value={skill}
+              onChange={(e) => handleSkillChange(index, e.target.value)}
+              variant="outlined"
+              label={`Skill ${index + 1}`}
+              className="mb-2"
+              fullWidth
+            />
+          </div>
+        ))}
+        <div className="">
+          <IconButton onClick={handleAddSkill} className="" size="small">
+            <AddIcon />
+          </IconButton>
+        </div>
+      </div>
     </div>
   );
 };

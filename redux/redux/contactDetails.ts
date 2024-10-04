@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IContact } from "../Interface";
+import { updateContactMapsDetails } from "../firebase/firebaseContactDetails";
 
 const initialState: IContact = {
     map: "",
@@ -18,12 +19,17 @@ const initialState: IContact = {
       fetchContactFailure(state, action: PayloadAction<string>) {
         console.error(action.payload);
       },
+      addContactMap(state, action: PayloadAction<string>) {
+        state.map= action.payload;
+        updateContactMapsDetails(action.payload)
+      },
     },
   });
   
   export const {
     fetchContactStart,
     fetchContactSuccess,
+    addContactMap,
     fetchContactFailure,
   } = contactSlice.actions;
   

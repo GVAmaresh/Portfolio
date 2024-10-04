@@ -2,12 +2,14 @@ import { useColor } from "@/app/ColorContext";
 import { RootState } from "@/redux/store";
 import { IconButton, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import AddIcon from "@mui/icons-material/Add";
 import { ITestimonials, IWhatIamDoing } from "@/redux/Interface";
-import { MdDelete } from "react-icons/md";
 
-export const EditTestimonials = () => {
+import { MdDelete } from "react-icons/md";
+import { addIntroduction, addTestimonials, addWhatIamDoing, addWhatIKnow } from "@/redux/redux/aboutDetails";
+
+export const EditTestimonials = ({saveData}:{saveData:boolean}) => {
   const { theme } = useColor();
   const { testimonials: reduxTestimonials } = useSelector(
     (state: RootState) => state.about
@@ -17,6 +19,15 @@ export const EditTestimonials = () => {
   useEffect(() => {
     setTestimonials(reduxTestimonials || []);
   }, [reduxTestimonials]);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log(saveData)
+    if (saveData) {
+      console.log(testimonials)
+      dispatch(addTestimonials(testimonials));
+    }
+  }, [saveData, dispatch]);
 
   const handleTestimonialChange = (
     index: number,
@@ -153,13 +164,22 @@ export const EditTestimonials = () => {
   );
 };
 
-export const EditIntroduction = () => {
+export const EditIntroduction = ({saveData}:{saveData:boolean}) => {
   const { theme } = useColor();
-  const { introduction: reduxIntroduction } = useSelector(
+  const { introduction: reduxIntroduction, } = useSelector(
     (state: RootState) => state.about
   );
-
+  
   const [introduction, setIntroduction] = useState<string[]>([]);
+  
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log(saveData)
+    if (saveData) {
+      console.log(introduction)
+      dispatch(addIntroduction(introduction));
+    }
+  }, [saveData, dispatch]);
 
   useEffect(() => {
     setIntroduction(reduxIntroduction);
@@ -226,12 +246,21 @@ export const EditIntroduction = () => {
   );
 };
 
-export const EditWhatIKnow = () => {
+export const EditWhatIKnow = ({saveData}:{saveData:boolean}) => {
   const { theme } = useColor();
   const { whatIKnow: reduxWhatIKnow } = useSelector(
     (state: RootState) => state.about
   );
   const [whatIKnow, setWhatIKnow] = useState<string[]>([]);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log(saveData)
+    if (saveData) {
+      console.log(whatIKnow)
+      dispatch(addWhatIKnow(whatIKnow))
+    }
+  }, [saveData, dispatch]);
 
   useEffect(() => {
     setWhatIKnow(reduxWhatIKnow || []);
@@ -290,17 +319,26 @@ export const EditWhatIKnow = () => {
 
 
 
-export const EditWhatIamDoing = () => {
+export const EditWhatIamDoing = ({saveData}:{saveData:boolean}) => {
   const { theme } = useColor();
   const { whatIamDoing: reduxWhatIamDoing } = useSelector(
     (state: RootState) => state.about
   );
 
-  const [whatIamDoing, setWhatIamDoing] = useState<IWhatIamDoing[] | null>(null);
+  const [whatIamDoing, setWhatIamDoing] = useState<IWhatIamDoing[]>([]);
 
   useEffect(() => {
     setWhatIamDoing(reduxWhatIamDoing || []);
   }, [reduxWhatIamDoing]);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log(saveData)
+    if (saveData) {
+      console.log(whatIamDoing)
+      dispatch(addWhatIamDoing(whatIamDoing));
+    }
+  }, [saveData, dispatch]);
 
   const handleWhatIamDoingChange = (
     index: number,

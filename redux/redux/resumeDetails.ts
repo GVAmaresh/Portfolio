@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IEducation, IExperience, IResume } from "../Interface";
+import { updateEducationDetails, updateExperienceDetails, updateSkillsDetails } from "../firebase/firebaseResumeDetails";
 
 const initialState: IResume = {
   experience: {
@@ -37,12 +38,15 @@ const resumeSlice = createSlice({
     },
     addExperience(state, action: PayloadAction<IExperience>) {
       state.experience = action.payload;
+      updateExperienceDetails(action.payload)
     },
     addEducation(state, action: PayloadAction<IEducation>) {
       state.education = action.payload;
+      updateEducationDetails(action.payload)
     },
     addSkills(state, action: PayloadAction<string[]>) {
       state.skills = action.payload;
+      updateSkillsDetails(action.payload)
     },
   },
 });

@@ -5,7 +5,9 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import EditABoutMe from "./EditAboutMe";
 import UserDeatils from "./EditUserDetails";
-import ResumeDeatils from "./EditResume";
+import EditContactDetails from "./EditContactDetails";
+import ProjectDeatils from "./EditProjectDetails";
+import ResumeDetails from "./EditResume";
 export default function Features() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -47,7 +49,15 @@ export default function Features() {
           </div>
           <div className="border-2 mt-1 w-full border-gray-700"></div>
           <div className="p-4 pl-6">
-            <ResumeDeatils />
+            <ResumeDetails />
+          </div>
+          <div className="border-2 mt-1 w-full border-gray-700"></div>
+          <div className="p-4 pl-6">
+            < ProjectDeatils/>
+          </div>
+          <div className="border-2 mt-1 w-full border-gray-700"></div>
+          <div className="p-4 pl-6">
+            < EditContactDetails/>
           </div>
         </div>
       </Box>

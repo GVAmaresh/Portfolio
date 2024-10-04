@@ -1,19 +1,9 @@
-import { useSelector } from "react-redux";
-import { useColor } from "../ColorContext";
-import { RootState } from "@/redux/store";
-import { TextField, IconButton } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
-import { useEffect, useState } from "react";
-import { IconType } from "react-icons";
-import {
-  EditIntroduction,
-  EditTestimonials,
-  EditWhatIamDoing,
-  EditWhatIKnow
-} from "@/components/EditFeatures/EditAboutComponent";
 import { iconMapping } from "@/components/Others/IconType";
+import { useState } from "react";
+import { useColor } from "../ColorContext";
+import EditProjectDetails, { EditProjectGroupDetails } from "@/components/EditFeatures/EditProjectDetails";
 
-export default function EditAboutMe() {
+export default function ProjectDeatils() {
   const { theme } = useColor();
   const [saveData, setSaveData] = useState<boolean>(false);
   const handleSaveClick = () => {
@@ -23,15 +13,14 @@ export default function EditAboutMe() {
     }, 3000);
   };
   const IconComponent = iconMapping["save"];
-
   return (
-    <div className="w-full">
+    <div className="">
       <div className="flex gap-3">
         <div
           className="font-bold text-base md:text-2xl mt-3"
           style={{ color: theme.heading }}
         >
-          About Me
+          Project
         </div>
         <div
           className={`p-4 w-fit rounded-lg flex gap-2 cursor-pointer`}
@@ -44,16 +33,17 @@ export default function EditAboutMe() {
           <div className="" style={{ color: theme.subContent }}>
             Save
           </div>
+     
           <div className="mt-1">
             <IconComponent color={theme.logo} size={20} />
           </div>
         </div>
       </div>
-      <div className="ml-3 mt-2">
-        <EditIntroduction saveData={saveData}/>
-        <EditTestimonials saveData={saveData}/>
-        <EditWhatIKnow saveData={saveData}/>
-        <EditWhatIamDoing saveData={saveData}/>
+      <div className="mt-1">
+            <EditProjectGroupDetails saveData={saveData}/>
+          </div>
+      <div className="">
+        <EditProjectDetails saveData={saveData} />
       </div>
     </div>
   );

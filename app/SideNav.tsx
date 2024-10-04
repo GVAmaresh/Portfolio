@@ -15,14 +15,21 @@ import {
 } from "@/redux/firebase/getUserDetails";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/redux/store";
+import { Loading } from "@/components/Others/Loading";
 
 export default function SideNav({ children }: { children: React.ReactNode }) {
   const { theme, setChangeColor } = useColor();
   const dispatch = useDispatch<AppDispatch>();
-  const pathname = usePathname(); 
-  const { userName, loading, error } = useSelector(
-    (state: RootState) => state.user
-  );
+  const [loading, setLoading] = useState(true);
+  const pathname = usePathname();
+  const { userName } = useSelector((state: RootState) => state.user);
+
+  useEffect(() => {
+    if (userName) {
+      setLoading(false);
+      console.log(userName, loading);
+    }
+  }, [userName]);
   useEffect(() => {
     dispatch(fetchUserDetails());
     dispatch(fetchAboutDetails());
@@ -32,37 +39,46 @@ export default function SideNav({ children }: { children: React.ReactNode }) {
   }, [dispatch]);
 
   return (
-    <div className="h-screen" style={{ backgroundColor: theme.backgroundColor }}>
-      <div className="flex justify-end ">
-        <MdOutlineInvertColors
-          size={30}
-          color={theme.color}
-          onClick={setChangeColor}
-          className="cursor-pointer"
-        />
-      </div>
-      <div className="h-fit pt-2 md:pt-2 lg:py-5 px-4 md:px-16 lg:px-32 gap-2 md:gap-4 lg:gap-10 flex flex-col lg:flex-row">
-      {pathname !== "/login" && pathname !== "/features" && (
-        <div
-          className="w-full lg:w-1/4 rounded-3xl"
-          style={{ backgroundColor: theme.sideNav }}
-        >
-          {/* <div className="hidden lg:contents "></div> */}
-          <div className=" contents lg:hidden h-full ">
-            <Side_Comp />
+    <div
+      className="h-screen"
+      style={{ backgroundColor: theme.backgroundColor }}
+    >
+      {!loading ? (
+        <div className="">
+          {" "}
+          <div className="flex justify-end ">
+            <MdOutlineInvertColors
+              size={30}
+              color={theme.color}
+              onClick={setChangeColor}
+              className="cursor-pointer"
+            />
           </div>
-          <div className="hidden lg:contents ">
-            <Side_Comp_lg />
+          <div className="h-fit pt-2 md:pt-2 lg:py-5 px-4 md:px-16 lg:px-32 gap-2 md:gap-4 lg:gap-10 flex flex-col lg:flex-row">
+            {pathname !== "/login" && pathname !== "/features" && (
+              <div
+                className="w-full lg:w-1/4 rounded-3xl"
+                style={{ backgroundColor: theme.sideNav }}
+              >
+                <div className=" contents lg:hidden h-full ">
+                  <Side_Comp />
+                </div>
+                <div className="hidden lg:contents ">
+                  <Side_Comp_lg />
+                </div>
+              </div>
+            )}
+            <div
+              className="w-full lg:w-2/3 flex-grow h-auto lg:h-auto rounded-3xl overflow-hidden mb-2 md:mb-0"
+              style={{ backgroundColor: theme.contentBar }}
+            >
+              {children}
+            </div>
           </div>
-        </div>)}
-
-        <div
-          className="w-full lg:w-2/3 flex-grow h-auto lg:h-auto rounded-3xl overflow-hidden mb-2 md:mb-0"
-          style={{ backgroundColor: theme.contentBar }}
-        >
-          {children}
         </div>
-      </div>
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 }

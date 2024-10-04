@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IAbout_ME, ITestimonials, IWhatIamDoing } from "../Interface";
+import { updateIntroductionDetails, updateTestimonialsDetails, updateWhatIamDoingDetails, updateWhatIKnowDetails } from "../firebase/firebaseAboutDetails";
 
 const initialState: IAbout_ME = {
   introduction: [],
@@ -33,15 +34,19 @@ const aboutSlice = createSlice({
     },
     addIntroduction(state, action: PayloadAction<string[]>) {
       state.introduction = action.payload;
+      updateIntroductionDetails(action.payload)
     },
     addWhatIamDoing(state, action: PayloadAction<IWhatIamDoing[]>) {
       state.whatIamDoing = action.payload;
+      updateWhatIamDoingDetails(action.payload)
     },
-    addwhatIKnow(state, action: PayloadAction<string[]>) {
+    addWhatIKnow(state, action: PayloadAction<string[]>) {
       state.whatIKnow = action.payload;
+      updateWhatIKnowDetails(action.payload)
     },
-    addtestimonials(state, action: PayloadAction<ITestimonials[]>) {
+    addTestimonials(state, action: PayloadAction<ITestimonials[]>) {
       state.testimonials = action.payload;
+      updateTestimonialsDetails(action.payload)
     },
   },
 });
@@ -52,8 +57,8 @@ export const {
   fetchAboutMeFailure,
   addIntroduction,
   addWhatIamDoing,
-  addwhatIKnow,
-  addtestimonials,
+  addWhatIKnow,
+  addTestimonials,
 } = aboutSlice.actions;
 
 export default aboutSlice.reducer;
