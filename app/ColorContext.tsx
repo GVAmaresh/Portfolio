@@ -15,8 +15,8 @@ interface Theme {
   backgroundColor: string;
   sideNav: string;
   mainNav: string;
-  scrollbarThumb:string,
-  scrollbarTrack:string,
+  scrollbarThumb?:string,
+  scrollbarTrack?:string,
   boxShadow: string;
   contentBar: string;
   heading: string;
