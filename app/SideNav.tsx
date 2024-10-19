@@ -17,7 +17,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/redux/store";
 import { Loading } from "@/components/Others/Loading";
 import SpeedDialController from "@/components/SpeedDial/SpeedDial";
-import { Popover } from "@mui/material";
 import { PopOver } from "@/components/Others/PopOver";
 
 export default function SideNav({ children }: { children: React.ReactNode }) {
@@ -46,41 +45,53 @@ export default function SideNav({ children }: { children: React.ReactNode }) {
       className="h-screen"
       style={{ backgroundColor: theme.backgroundColor }}
     >
+      <div>
+        <PopOver />
+      </div>
       {!loading ? (
         <div className="">
-          <div className="flex justify-end ">
-            <PopOver/>
-            <MdOutlineInvertColors
-              size={30}
-              color={theme.color}
-              onClick={setChangeColor}
-              className="cursor-pointer"
-            />
-          </div>
-          <div className=" fixed bottom-10 right-4 z-50">
-            <SpeedDialController />
-          </div>
-          <div className="h-fit pt-2 md:pt-2 lg:py-5 px-4 md:px-16 lg:px-32 gap-2 md:gap-4 lg:gap-10 flex flex-col lg:flex-row">
-            {pathname !== "/login" && pathname !== "/features" && (
-              <div
-                className="w-full lg:w-1/4 rounded-3xl"
-                style={{ backgroundColor: theme.sideNav }}
-              >
-                <div className=" contents lg:hidden h-full ">
-                  <Side_Comp />
-                </div>
-                <div className="hidden lg:contents ">
-                  <Side_Comp_lg />
+          {pathname !== "/resume" ? (
+            <div>
+              <div className="flex justify-end">
+                <MdOutlineInvertColors
+                  size={30}
+                  color={theme.color}
+                  onClick={setChangeColor}
+                  className="cursor-pointer"
+                />
+              </div>
+              )
+              <div className="fixed bottom-10 right-4 z-50">
+                <SpeedDialController />
+              </div>
+              <div className="h-fit pt-2 md:pt-2 lg:py-5 px-4 md:px-16 lg:px-32 gap-2 md:gap-4 lg:gap-10 flex flex-col lg:flex-row">
+                {pathname !== "/login" && pathname !== "/features" && (
+                  <div
+                    className="w-full lg:w-1/4 rounded-3xl"
+                    style={{ backgroundColor: theme.sideNav }}
+                  >
+                    <div className="contents lg:hidden h-full">
+                      <Side_Comp />
+                    </div>
+                    <div className="hidden lg:contents">
+                      <Side_Comp_lg />
+                    </div>
+                  </div>
+                )}
+
+                <div
+                  className="w-full lg:w-2/3 flex-grow h-auto lg:h-auto rounded-3xl overflow-hidden mb-2 md:mb-0"
+                  style={{ backgroundColor: theme.contentBar }}
+                >
+                  {children}
                 </div>
               </div>
-            )}
-            <div
-              className="w-full lg:w-2/3 flex-grow h-auto lg:h-auto rounded-3xl overflow-hidden mb-2 md:mb-0"
-              style={{ backgroundColor: theme.contentBar }}
-            >
+            </div>
+          ) : (
+            <div className="">
               {children}
             </div>
-          </div>
+          )}
         </div>
       ) : (
         <Loading />

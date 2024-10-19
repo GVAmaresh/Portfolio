@@ -118,12 +118,12 @@ const Leetcode = () => {
 
   return (
     <div className="">
-          <div
-            className=" text-3xl font-bold mt-12 mb-4"
-            style={{ color: theme.heading }}
-          >
-            Leetcode
-          </div>
+      <div
+        className="text-3xl font-bold mt-12 mb-4"
+        style={{ color: theme.heading }}
+      >
+        Leetcode
+      </div>
       <div className="" style={{ boxShadow: theme.boxShadow }}>
         <div className="">
         </div>
@@ -151,6 +151,11 @@ const Leetcode = () => {
               <span className="text-red-700 font-extrabold">Hard:{"  "}</span>
               {leetcodeData ? leetcodeData.solvedHard : "00"}/
               {leetcodeData ? leetcodeData.totalHard : "000"}
+            </div>
+            <div className="mt-2 p-3 bg-slate-500 text-white rounded-lg">
+              <span className="text-green-500 font-extrabold">Total:{"  "}</span>
+              {leetcodeData ? leetcodeData.solvedProblems : "00"}/
+              {leetcodeData ? leetcodeData.totalProblems : "000"}
             </div>
           </div>
         </div>

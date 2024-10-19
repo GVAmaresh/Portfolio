@@ -5,6 +5,8 @@ import { Modal as BaseModal } from "@mui/base/Modal";
 import { useColor } from "@/app/ColorContext";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
+import Image from "next/image";
+import { CardMedia } from "@mui/material";
 const TestimonialsComponent = ({
   company,
   name,
@@ -33,26 +35,36 @@ const TestimonialsComponent = ({
             <div
               className="absolute ml-6 w-24 z-50 h-24 -mt-12 rounded-3xl"
               style={{ zIndex: 1000, backgroundColor: theme.box }}
-            ></div>
+            >
+   
+              <CardMedia
+                component="img"
+                image={photo}
+                alt="logo"
+               className="rounded-3xl w-full h-full object-cover"
+                // width={100}
+                // height={100}
+              />
+            </div>
             <div
               className="text-white font-bold ml-32 -mt-6"
               style={{ color: theme.heading }}
             >
               {name}
               <div className="flex flex-col">
-                  <div
-                    className=" text-sm font-normal"
-                    style={{ color: theme.subContent }}
-                  >
-                    {position}
-                  </div>
-                  <div
-                    className=" text-sm font-normal"
-                    style={{ color: theme.subContent }}
-                  >
-                    {company}
-                  </div>
+                <div
+                  className=" text-sm font-normal"
+                  style={{ color: theme.subContent }}
+                >
+                  {position}
                 </div>
+                <div
+                  className=" text-sm font-normal"
+                  style={{ color: theme.subContent }}
+                >
+                  {company}
+                </div>
+              </div>
             </div>
           </div>
           <div
@@ -79,9 +91,18 @@ const TestimonialsComponent = ({
           <div className="bg-gray-800 rounded-3xl p-6">
             <div className="flex gap-6">
               <div
-                className="ml-6 w-24 h-24 -mt-6 rounded-3xl"
+                className="ml-6 w-24 h-24 -mt-12 rounded-3xl "
                 style={{ zIndex: 1000, backgroundColor: theme.box }}
-              ></div>
+              >
+                <CardMedia
+                  component="img"
+                  image={photo}
+                  alt="logo"
+                  className="rounded-3xl w-full h-full object-cover"
+                  width={100}
+                  height={100}
+                />
+              </div>
               <div
                 className="text-white font-bold -mt-6"
                 style={{ color: theme.heading }}

@@ -184,38 +184,32 @@ import {
 
 export const EditExperienceDetails = ({ saveData }: { saveData: boolean }) => {
   const { theme } = useColor();
-  const { experience: reduxExperience } = useSelector(
-    (state: RootState) => state.resume
-  );
-
-  const [experience, setExperience] = useState<IExperience | null>(null);
-
+  const { experience: reduxExperience } = useSelector((state: RootState) => state.resume);
   const dispatch = useDispatch();
+  const [experience, setExperience] = useState<IExperience | null>(reduxExperience);
+
   useEffect(() => {
-    console.log(saveData);
     if (saveData) {
-      console.log(experience);
-      experience && dispatch(addExperience(experience));
+      if (experience) {
+        dispatch(addExperience(experience));
+      }
     }
-  }, [saveData, dispatch]);
+  }, [saveData, dispatch, experience]);
 
   useEffect(() => {
     setExperience(reduxExperience);
   }, [reduxExperience]);
 
-  const handleInputChange = (
-    index: number,
-    field: keyof IMyWork,
-    value: string
-  ) => {
-    const updatedWork = [...(experience?.myWork || [])];
+  const handleInputChange = (index: number, field: keyof IMyWork, value: string) => {
+    if (!experience) return;
+
+    const updatedWork = [...(experience.myWork || [])];
     updatedWork[index] = {
       ...updatedWork[index],
-      [field]: value
+      [field]: value,
     };
-    setExperience((prevExperience) =>
-      prevExperience ? { ...prevExperience, myWork: updatedWork } : null
-    );
+
+    setExperience({ ...experience, myWork: updatedWork });
   };
 
   const handleAddExperience = () => {
@@ -224,30 +218,44 @@ export const EditExperienceDetails = ({ saveData }: { saveData: boolean }) => {
         ? {
             ...prevExperience,
             myWork: [
-              ...(prevExperience?.myWork || []),
+              ...(prevExperience.myWork || []),
               {
                 company: "",
                 position: "",
                 duration: "",
                 description: "",
-                certificate: []
-              }
-            ]
+                certificate: [],
+              },
+            ],
           }
         : null
     );
   };
 
   const handleRemoveExperience = (index: number) => {
-    const updatedWork = [...(experience?.myWork || [])];
+    if (!experience) return;
+
+    const updatedWork = [...(experience.myWork || [])];
     updatedWork.splice(index, 1);
-    setExperience((prevExperience) =>
-      prevExperience ? { ...prevExperience, myWork: updatedWork } : null
-    );
+    setExperience({ ...experience, myWork: updatedWork });
   };
 
-  const handleSave = () => {
-    console.log("Saved Experience Details: ", experience);
+  const handleAddCertificate = (workIndex: number) => {
+    if (!experience) return;
+
+    const updatedWork = [...(experience.myWork || [])];
+    updatedWork[workIndex].certificate.push(""); // Add a new empty certificate
+
+    setExperience({ ...experience, myWork: updatedWork });
+  };
+
+  const handleCertificateChange = (workIndex: number, certIndex: number, value: string) => {
+    if (!experience) return;
+
+    const updatedWork = [...(experience.myWork || [])];
+    updatedWork[workIndex].certificate[certIndex] = value;
+
+    setExperience({ ...experience, myWork: updatedWork });
   };
 
   return (
@@ -258,79 +266,60 @@ export const EditExperienceDetails = ({ saveData }: { saveData: boolean }) => {
             Experience Details
           </div>
           <div className="flex flex-wrap gap-4">
-            {experience &&
-              experience.myWork &&
-              experience.myWork.map((work, index) => (
-                <div
-                  className="flex p-2"
-                  style={{ boxShadow: theme.boxShadow }}
-                  key={index}
-                >
-                  <div className="w-72 flex flex-col gap-2">
+            {experience.myWork&&experience.myWork.map((work, index) => (
+              <div key={index} className="flex p-2" style={{ boxShadow: theme.boxShadow }}>
+                <div className="w-72 flex flex-col gap-2">
+                  <TextField
+                    label="Company Name"
+                    variant="outlined"
+                    fullWidth
+                    value={work.company}
+                    onChange={(e) => handleInputChange(index, "company", e.target.value)}
+                  />
+                  <TextField
+                    label="Position"
+                    variant="outlined"
+                    fullWidth
+                    value={work.position}
+                    onChange={(e) => handleInputChange(index, "position", e.target.value)}
+                  />
+                  <TextField
+                    label="Duration"
+                    variant="outlined"
+                    fullWidth
+                    value={work.duration}
+                    onChange={(e) => handleInputChange(index, "duration", e.target.value)}
+                  />
+                  <TextField
+                    label="Description"
+                    variant="outlined"
+                    fullWidth
+                    value={work.description}
+                    onChange={(e) => handleInputChange(index, "description", e.target.value)}
+                  />
+                  {work.certificate.map((cert, certIndex) => (
                     <TextField
-                      label="Company Name"
+                      key={certIndex}
+                      label={`Certificate ${certIndex + 1}`}
                       variant="outlined"
                       fullWidth
-                      value={work.company}
+                      value={cert}
                       onChange={(e) =>
-                        handleInputChange(index, "company", e.target.value)
+                        handleCertificateChange(index, certIndex, e.target.value)
                       }
                     />
-                    <TextField
-                      label="Position"
-                      variant="outlined"
-                      fullWidth
-                      value={work.position}
-                      onChange={(e) =>
-                        handleInputChange(index, "position", e.target.value)
-                      }
-                    />
-                    <TextField
-                      label="Duration"
-                      variant="outlined"
-                      fullWidth
-                      value={work.duration}
-                      onChange={(e) =>
-                        handleInputChange(index, "duration", e.target.value)
-                      }
-                    />
-                    <TextField
-                      label="Description"
-                      variant="outlined"
-                      fullWidth
-                      value={work.description}
-                      onChange={(e) =>
-                        handleInputChange(index, "description", e.target.value)
-                      }
-                    />
-                    {work.certificate.map((cert, index) => (
-                      <TextField
-                        key={index}
-                        label={`Certificate ${index + 1}`}
-                        variant="outlined"
-                        fullWidth
-                        value={cert}
-                        onChange={(e) =>
-                          handleInputChange(
-                            index,
-                            "certificate",
-                            e.target.value
-                          )
-                        }
-                      />
-                    ))}
-                  </div>
-                  <div className="">
-                    <IconButton
-                      onClick={() => handleRemoveExperience(index)}
-                      color="error"
-                    >
-                      <MdDelete color="black" />
-                    </IconButton>
-                  </div>
+                  ))}
+                  <IconButton onClick={() => handleAddCertificate(index)} size="small">
+                    <AddIcon />
+                  </IconButton>
                 </div>
-              ))}
-
+                <div>
+                  <IconButton onClick={() => handleRemoveExperience(index)} color="error">
+                    <MdDelete color="black" />
+                  </IconButton>
+                </div>
+              </div>
+            ))}
             <IconButton onClick={handleAddExperience} className="" size="small">
               <AddIcon />
             </IconButton>

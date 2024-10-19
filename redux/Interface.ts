@@ -53,6 +53,7 @@ export interface IExperience {
   logo?: string;
   title?: string;
   myWork?: IMyWork[];
+  certificate?:string[]
 }
 
 export interface IEducation {

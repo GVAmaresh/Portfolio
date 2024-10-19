@@ -43,11 +43,11 @@ export default function Page() {
       <div className="flex justify-center">
         <div className="">
           <Image
-            src="/images/logo.jpg"
+            src="/images/logo.png"
             alt="logo"
-            className="w-32 h-28 md:w-40 md:h-32 lg:w-48 lg:h-40"
-            width={200}
-            height={200}
+            className="w-28 h-28 md:w-40 md:h-32 lg:w-32 lg:h-32 mt-5"
+            width={100}
+            height={100}
           />
         </div>
         <div className="text-center mt-10 text-4xl md:text-5xl lg:text-7xl font-extralight text-slate-500">
