@@ -52,7 +52,7 @@ export default function SideNav({ children }: { children: React.ReactNode }) {
         <div className="">
           {pathname !== "/resume" ? (
             <div className="">
-              <div className="flex justify-end fixed top-4 right-4">
+              <div className="flex justify-end fixed top-4 right-4 z-20">
                 <MdOutlineInvertColors
                   size={30}
                   color={theme.color}
