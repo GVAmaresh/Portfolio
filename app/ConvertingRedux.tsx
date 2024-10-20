@@ -9,7 +9,7 @@ export default function ConvertingRedux({
 }) {
     
   return (
-    <div>
+    <div className="">
       <Provider store={store}>{children}</Provider>
     </div>
   );

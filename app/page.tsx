@@ -10,15 +10,15 @@ export default function Home() {
     const root = document.documentElement;
 
     if (theme.scrollbarThumb) {
-      root.style.setProperty('--scrollbar-thumb', theme.scrollbarThumb);
+      root.style.setProperty('-webkit-scrollbar-thumb', theme.scrollbarThumb);
     } else {
-      root.style.setProperty('--scrollbar-thumb', '#888'); 
+      root.style.setProperty('-webkit-scrollbar-thumb', '#888'); 
     }
 
     if (theme.scrollbarTrack) {
-      root.style.setProperty('--scrollbar-track', theme.scrollbarTrack);
+      root.style.setProperty('-webkit-scrollbar-track', theme.scrollbarTrack);
     } else {
-      root.style.setProperty('--scrollbar-track', '#f1f1f1'); 
+      root.style.setProperty('-webkit-scrollbar-track', '#f1f1f1'); 
     }
   }, [theme]);
 

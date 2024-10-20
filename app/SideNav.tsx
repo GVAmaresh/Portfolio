@@ -42,7 +42,7 @@ export default function SideNav({ children }: { children: React.ReactNode }) {
 
   return (
     <div
-      className="h-screen"
+      className="h-screen "
       style={{ backgroundColor: theme.backgroundColor }}
     >
       <div>
@@ -64,7 +64,7 @@ export default function SideNav({ children }: { children: React.ReactNode }) {
               <div className="fixed bottom-10 right-4 z-50">
                 <SpeedDialController />
               </div>
-              <div className="h-fit pt-2 md:pt-2 lg:py-5 px-4 md:px-16 lg:px-32 gap-2 md:gap-4 lg:gap-10 flex flex-col lg:flex-row">
+              <div className="h-fit pt-2 md:pt-2 lg:pt-0 px-4 md:px-16 lg:px-32 gap-2 md:gap-4 lg:gap-10 flex flex-col lg:flex-row">
                 {pathname !== "/login" && pathname !== "/features" && (
                   <div
                     className="w-full lg:w-1/4 rounded-3xl"
