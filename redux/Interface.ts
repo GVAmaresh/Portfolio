@@ -7,6 +7,7 @@ export interface IUserDetails {
   location: string;
   linkedin_url: string;
   leetcode_url: string;
+  twitter_url:string,
   github_url: string;
   field: string[];
   loading?: boolean;

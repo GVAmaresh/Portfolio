@@ -51,7 +51,18 @@ const GetTimeline = ({
             className="text-xs md:text-base lg:text-base font-extralight"
             style={{ color: theme.subContent }}
           >
-            {description}
+            {description.includes("\\") ? (
+              <ul className="list-disc pl-5">
+                {description
+                  .split("\\")
+                  .map(
+                    (line, index) =>
+                      line.trim() && <li key={index}>{line.trim()}</li>
+                  )}
+              </ul>
+            ) : (
+              <span>{description}</span>
+            )}
           </div>
           <div className="">
             {certificate && certificate.length > 0 && (
@@ -144,7 +155,7 @@ function TimelineComponents({
             <div key={index}>
               <GetTimeline
                 title={data.company}
-                duration={data.description}
+                duration={data.duration}
                 description={data.description}
                 position={data.position}
                 certificate={data.certificate}

@@ -141,6 +141,7 @@ export const EditEducationDetails = ({ saveData }: { saveData: boolean }) => {
                     <div className="">
                       <TextField
                         label="Description"
+                        multiline
                         variant="outlined"
                         fullWidth
                         value={edu.description}
@@ -244,18 +245,16 @@ export const EditExperienceDetails = ({ saveData }: { saveData: boolean }) => {
     if (!experience) return;
 
     const updatedWork = [...(experience.myWork || [])];
-    updatedWork[workIndex].certificate.push(""); // Add a new empty certificate
+    updatedWork[workIndex].certificate.push(""); 
 
     setExperience({ ...experience, myWork: updatedWork });
   };
 
   const handleCertificateChange = (workIndex: number, certIndex: number, value: string) => {
     if (!experience) return;
-
-    const updatedWork = [...(experience.myWork || [])];
-    updatedWork[workIndex].certificate[certIndex] = value;
-
-    setExperience({ ...experience, myWork: updatedWork });
+    const updatedExperience = JSON.parse(JSON.stringify(experience));
+    updatedExperience.myWork[workIndex].certificate[certIndex] = value;
+    setExperience(updatedExperience);
   };
 
   return (
@@ -280,7 +279,7 @@ export const EditExperienceDetails = ({ saveData }: { saveData: boolean }) => {
                     label="Position"
                     variant="outlined"
                     fullWidth
-                    value={work.position}
+                    value={work.position }
                     onChange={(e) => handleInputChange(index, "position", e.target.value)}
                   />
                   <TextField
@@ -293,6 +292,7 @@ export const EditExperienceDetails = ({ saveData }: { saveData: boolean }) => {
                   <TextField
                     label="Description"
                     variant="outlined"
+                    multiline
                     fullWidth
                     value={work.description}
                     onChange={(e) => handleInputChange(index, "description", e.target.value)}

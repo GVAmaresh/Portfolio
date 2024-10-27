@@ -10,6 +10,7 @@ import { FaLocationDot, FaLinkedin, FaTwitter } from "react-icons/fa6";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Side_Component_Details from "./Side_Comp_Details";
 import { SiLeetcode } from "react-icons/si";
+import { FaXTwitter } from "react-icons/fa6";
 import { RootState } from "@/redux/store";
 import { useColor } from "@/app/ColorContext";
 import { useSelector } from "react-redux";
@@ -22,6 +23,7 @@ export default function Side_Comp() {
     field,
     github_url,
     leetcode_url,
+    twitter_url,
     linkedin_url,
     location,
     phoneNumber,
@@ -29,7 +31,6 @@ export default function Side_Comp() {
     userName
   } = useSelector((state: RootState) => state.user);
 
-  // Local states
   const [data, setData] = React.useState<string[]>([]);
   const [socialMedia, setSocialMedia] = React.useState<any[]>([]);
   const [details, setDetails] = React.useState<any[]>([]);
@@ -54,6 +55,12 @@ export default function Side_Comp() {
         name: "github",
         link: github_url,
         icon: FaGithub,
+        color: "black"
+      },
+      {
+        name: "twitter",
+        link: twitter_url,
+        icon: FaXTwitter,
         color: "black"
       }
     ]);

@@ -11,6 +11,7 @@ const initialState: IUserDetails = {
   linkedin_url: "",
   leetcode_url: "",
   github_url: "",
+  twitter_url:"",
   field: [""],
   loading: false,
   error: "",
